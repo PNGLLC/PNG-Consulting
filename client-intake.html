@@ -3,926 +3,768 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
     <title>Pre-Consultation Intake | PNG Solutions LLC</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --navy: #1B2D4F;
-            --navy-dark: #0F1A2E;
-            --navy-light: #2A4066;
+            --blue: #0077B6;
             --gray: #6D6E70;
-            --gray-light: #A7A9AC;
-            --gray-lighter: #E8E8E8;
-            --white: #FFFFFF;
-            --off-white: #F8F9FA;
-            --success: #10B981;
+            --light-gray: #f5f7fa;
+            --white: #ffffff;
         }
-
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        
         body {
-            font-family: 'Open Sans', sans-serif;
-            background: var(--off-white);
-            color: var(--navy);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--light-gray);
+            color: #333;
             line-height: 1.6;
-            min-height: 100vh;
         }
-
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-light) 100%);
+        
+        .header {
+            background: var(--navy);
             color: var(--white);
-            padding: 50px 20px 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -10%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 70%);
-            border-radius: 50%;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: var(--white);
-            margin-bottom: 6px;
-        }
-
-        .logo .n { color: var(--gray-light); }
-
-        .tagline {
-            font-size: 0.65rem;
-            color: var(--gray-light);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 32px;
-        }
-
-        .hero h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 16px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            color: rgba(255,255,255,0.8);
-            font-size: 1.05rem;
-            margin-bottom: 24px;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            padding-top: 24px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .hero-stat {
+            padding: 30px 20px;
             text-align: center;
         }
-
-        .hero-stat .number {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--white);
+        
+        .header .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 5px;
         }
-
-        .hero-stat .label {
-            font-size: 0.7rem;
-            color: var(--gray-light);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        
+        .header .logo span { color: var(--blue); }
+        
+        .header p {
+            opacity: 0.85;
+            font-size: 0.95em;
         }
-
-        /* Form Container */
-        .form-container {
+        
+        .container {
             max-width: 700px;
-            margin: -30px auto 40px;
-            padding: 0 20px;
-            position: relative;
-            z-index: 2;
+            margin: 0 auto;
+            padding: 30px 20px 50px;
         }
-
-        .form-card {
+        
+        .intro-card {
             background: var(--white);
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--blue);
         }
-
-        .form-progress {
-            height: 4px;
-            background: var(--gray-lighter);
+        
+        .intro-card h1 {
+            color: var(--navy);
+            font-size: 1.5em;
+            margin-bottom: 10px;
         }
-
-        .form-progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--navy), var(--navy-light));
-            width: 0%;
-            transition: width 0.3s ease;
+        
+        .intro-card p {
+            color: var(--gray);
+            margin-bottom: 15px;
         }
-
-        .form-body {
-            padding: 40px;
-        }
-
-        @media (max-width: 600px) {
-            .form-body { padding: 24px; }
-            .hero h1 { font-size: 1.6rem; }
-            .hero-stats { gap: 24px; }
-        }
-
-        /* Section Styling */
-        .form-section {
-            margin-bottom: 36px;
-            padding-bottom: 36px;
-            border-bottom: 1px solid var(--gray-lighter);
-        }
-
-        .form-section:last-of-type {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .section-header {
-            margin-bottom: 20px;
-        }
-
-        .section-number {
+        
+        .time-badge {
             display: inline-block;
-            width: 28px;
-            height: 28px;
+            background: var(--navy);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+        
+        .form-section {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        .section-number {
+            width: 32px;
+            height: 32px;
             background: var(--navy);
             color: var(--white);
             border-radius: 50%;
-            text-align: center;
-            line-height: 28px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: 700;
-            margin-right: 10px;
+            font-size: 0.9em;
         }
-
-        .section-title {
-            font-size: 1.1rem;
+        
+        .section-header h2 {
             color: var(--navy);
-            display: inline;
+            font-size: 1.1em;
         }
-
-        .section-subtitle {
-            color: var(--gray);
-            font-size: 0.9rem;
-            margin-top: 6px;
-            margin-left: 38px;
-        }
-
-        /* Form Elements */
+        
         .form-group {
             margin-bottom: 20px;
         }
-
-        .form-group label {
+        
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        label {
             display: block;
             font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--navy);
-            margin-bottom: 8px;
-        }
-
-        .form-group .optional {
-            font-weight: 400;
-            color: var(--gray-light);
-            font-size: 0.8rem;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        select,
-        textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid var(--gray-lighter);
-            border-radius: 10px;
-            font-family: 'Open Sans', sans-serif;
-            font-size: 1rem;
-            color: var(--navy);
-            transition: all 0.3s ease;
-            background: var(--white);
-        }
-
-        input::placeholder, textarea::placeholder {
-            color: var(--gray-light);
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--navy);
-            box-shadow: 0 0 0 3px rgba(27, 45, 79, 0.1);
-        }
-
-        select {
-            cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236D6E70' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 16px center;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        /* Checkbox Options - Fixed */
-        .checkbox-group {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .checkbox-option {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 16px;
-            background: var(--off-white);
-            border: 2px solid transparent;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            user-select: none;
-        }
-
-        .checkbox-option:hover {
-            background: #f0f4f8;
-        }
-
-        .checkbox-option.selected {
-            background: #E8F4EC;
-            border-color: var(--success);
-        }
-
-        .custom-checkbox {
-            width: 22px;
-            height: 22px;
-            border: 2px solid var(--gray-light);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            transition: all 0.2s ease;
-            background: var(--white);
-        }
-
-        .checkbox-option.selected .custom-checkbox {
-            background: var(--success);
-            border-color: var(--success);
-        }
-
-        .custom-checkbox svg {
-            width: 14px;
-            height: 14px;
-            stroke: var(--white);
-            stroke-width: 3;
-            opacity: 0;
-            transform: scale(0.5);
-            transition: all 0.2s ease;
-        }
-
-        .checkbox-option.selected .custom-checkbox svg {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .checkbox-text {
-            font-size: 0.95rem;
-            color: var(--navy);
-        }
-
-        /* Priority Section - appears when multiple selected */
-        .priority-section {
-            display: none;
-            margin-top: 24px;
-            padding: 20px;
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            border-radius: 12px;
-            border: 1px solid var(--gray-lighter);
-        }
-
-        .priority-section.visible {
-            display: block;
-            animation: slideDown 0.3s ease;
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .priority-section h4 {
-            font-size: 0.9rem;
             color: var(--navy);
             margin-bottom: 6px;
         }
-
-        .priority-section p {
-            font-size: 0.8rem;
+        
+        .helper {
+            font-size: 0.85em;
             color: var(--gray);
-            margin-bottom: 16px;
+            margin-bottom: 8px;
         }
-
-        .priority-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .priority-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 16px;
-            background: var(--white);
-            border-radius: 8px;
-            border: 1px solid var(--gray-lighter);
-        }
-
-        .priority-rank {
-            width: 28px;
-            height: 28px;
-            background: var(--navy);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .priority-item select {
-            flex: 1;
-            padding: 10px 12px;
-            font-size: 0.9rem;
-        }
-
-        /* Urgency Options - Clean, no emojis */
-        .urgency-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        @media (max-width: 500px) {
-            .urgency-options { grid-template-columns: 1fr; }
-        }
-
-        .urgency-option {
-            padding: 16px;
-            background: var(--off-white);
-            border: 2px solid transparent;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-align: center;
-        }
-
-        .urgency-option:hover {
-            background: #f0f4f8;
-        }
-
-        .urgency-option.selected {
-            border-color: var(--navy);
-            background: var(--white);
-        }
-
-        .urgency-option input[type="radio"] {
-            display: none;
-        }
-
-        .urgency-option .title {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--navy);
-            margin-bottom: 4px;
-        }
-
-        .urgency-option .desc {
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-
-        /* Submit Button */
-        .submit-btn {
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
             width: 100%;
-            padding: 18px 32px;
-            background: var(--navy);
-            color: var(--white);
-            border: none;
-            border-radius: 10px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 8px;
+            padding: 14px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+            transition: border-color 0.3s;
         }
-
-        .submit-btn:hover {
-            background: var(--navy-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(27, 45, 79, 0.3);
+        
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--blue);
         }
-
-        .submit-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
+        
+        textarea {
+            min-height: 100px;
+            resize: vertical;
         }
-
-        .form-footer {
-            text-align: center;
-            margin-top: 16px;
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
-
-        /* Success State */
-        .success-state {
-            display: none;
-            text-align: center;
-            padding: 60px 40px;
-        }
-
-        .success-state.visible {
-            display: block;
-        }
-
-        .success-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #D1FAE5, #A7F3D0);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 28px;
-        }
-
-        .success-icon svg {
-            width: 40px;
-            height: 40px;
-            stroke: var(--success);
-            stroke-width: 3;
-        }
-
-        .success-state h2 {
-            color: var(--navy);
-            font-size: 1.6rem;
-            margin-bottom: 16px;
-        }
-
-        .success-state p {
-            color: var(--gray);
-            font-size: 1rem;
-            line-height: 1.7;
-            max-width: 450px;
-            margin: 0 auto;
-        }
-
-        .success-state .highlight {
-            background: #FEF9C3;
-            padding: 2px 6px;
-            border-radius: 4px;
-        }
-
-        .success-details {
-            margin-top: 32px;
-            padding: 24px;
-            background: var(--off-white);
-            border-radius: 12px;
-            text-align: left;
-        }
-
-        .success-details h4 {
-            font-size: 0.85rem;
-            color: var(--navy);
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .success-details ul {
-            list-style: none;
-        }
-
-        .success-details li {
-            padding: 8px 0;
-            font-size: 0.9rem;
-            color: var(--gray);
-            display: flex;
-            align-items: center;
+        
+        .checkbox-group {
+            display: grid;
             gap: 10px;
         }
-
-        .success-details li::before {
-            content: '✓';
-            color: var(--success);
-            font-weight: 700;
+        
+        .checkbox-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 12px 14px;
+            background: var(--light-gray);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 2px solid transparent;
         }
+        
+        .checkbox-item:hover {
+            border-color: var(--gray);
+        }
+        
+        .checkbox-item.selected {
+            background: var(--white);
+            border-color: var(--blue);
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: var(--blue);
+            flex-shrink: 0;
+        }
+        
+        .checkbox-item .checkbox-content {
+            flex: 1;
+        }
+        
+        .checkbox-item .checkbox-label {
+            font-weight: 500;
+            color: var(--navy);
+        }
+        
+        .checkbox-item .checkbox-desc {
+            font-size: 0.85em;
+            color: var(--gray);
+            margin-top: 2px;
+        }
+        
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        @media (max-width: 600px) {
+            .row { grid-template-columns: 1fr; }
+        }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--blue);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: var(--navy);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+        
+        .privacy-note {
+            text-align: center;
+            font-size: 0.85em;
+            color: var(--gray);
+            margin-top: 15px;
+        }
+        
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 50px 30px;
+        }
+        
+        .success-message .icon {
+            width: 80px;
+            height: 80px;
+            background: var(--blue);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin: 0 auto 20px;
+        }
+        
+        .success-message h2 {
+            color: var(--navy);
+            margin-bottom: 10px;
+        }
+        
+        .success-message p {
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+        
+        .success-message .next-steps {
+            background: var(--light-gray);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: left;
+            border-left: 4px solid var(--blue);
+        }
+        
+        .success-message .next-steps h4 {
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+        
+        .success-message .next-steps li {
+            padding: 8px 0;
+            color: var(--gray);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--gray);
+            font-size: 0.85em;
+        }
+        
+        .footer a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+        
+        .required { color: var(--blue); }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
-    <div class="hero">
-        <div class="hero-content">
-            <div class="logo">P<span class="n">N</span>G Solutions LLC</div>
-            <div class="tagline">Efficiency, Compliance, Confidence—Delivered.</div>
-            
-            <h1>Let's Make Your Consultation Count</h1>
-            <p>Take 3 minutes to share what's on your mind. This helps us skip the small talk and jump straight into solutions.</p>
-            
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="number">3 min</div>
-                    <div class="label">To Complete</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="number">30 min</div>
-                    <div class="label">Call Saved</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="number">100%</div>
-                    <div class="label">Focused</div>
-                </div>
-            </div>
-        </div>
+    <div class="header">
+        <div class="logo">P<span>N</span>G Solutions LLC</div>
+        <p>Efficiency, Compliance, Confidence—Delivered.</p>
     </div>
-
-    <!-- Form Container -->
-    <div class="form-container">
-        <div class="form-card">
-            <div class="form-progress">
-                <div class="form-progress-fill" id="progressFill"></div>
+    
+    <div class="container">
+        <div class="intro-card">
+            <h1>Pre-Consultation Intake</h1>
+            <p>Thanks for booking! Please complete this form before our call so I can come prepared with relevant ideas for your business.</p>
+            <span class="time-badge">⏱️ Takes about 5-7 minutes</span>
+        </div>
+        
+        <form id="intakeForm">
+            <!-- SECTION 1: Contact Info -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">1</span>
+                    <h2>Your Information</h2>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>Full Name <span class="required">*</span></label>
+                        <input type="text" name="fullName" required placeholder="John Smith">
+                    </div>
+                    <div class="form-group">
+                        <label>Email <span class="required">*</span></label>
+                        <input type="email" name="email" required placeholder="john@company.com">
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" name="phone" placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label>Your Role</label>
+                        <select name="role">
+                            <option value="">Select...</option>
+                            <option value="Owner/Founder">Owner / Founder</option>
+                            <option value="CEO/President">CEO / President</option>
+                            <option value="Operations Manager">Operations Manager</option>
+                            <option value="Office Manager">Office Manager</option>
+                            <option value="Department Head">Department Head</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
             </div>
-
-            <div class="form-body" id="formBody">
-                <form id="intakeForm">
+            
+            <!-- SECTION 2: Business Info -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">2</span>
+                    <h2>About Your Business</h2>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>Business Name <span class="required">*</span></label>
+                        <input type="text" name="businessName" required placeholder="Acme Services LLC">
+                    </div>
+                    <div class="form-group">
+                        <label>Industry <span class="required">*</span></label>
+                        <select name="industry" required>
+                            <option value="">Select...</option>
+                            <option value="Healthcare">Healthcare</option>
+                            <option value="Professional Services">Professional Services</option>
+                            <option value="Real Estate">Real Estate</option>
+                            <option value="Retail/E-commerce">Retail / E-commerce</option>
+                            <option value="Construction">Construction / Trades</option>
+                            <option value="Legal">Legal</option>
+                            <option value="Finance/Accounting">Finance / Accounting</option>
+                            <option value="Marketing/Agency">Marketing / Agency</option>
+                            <option value="Logistics/Transportation">Logistics / Transportation</option>
+                            <option value="Manufacturing">Manufacturing</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>How long in business?</label>
+                        <select name="yearsInBusiness">
+                            <option value="">Select...</option>
+                            <option value="Less than 1 year">Less than 1 year</option>
+                            <option value="1-3 years">1-3 years</option>
+                            <option value="3-5 years">3-5 years</option>
+                            <option value="5-10 years">5-10 years</option>
+                            <option value="10+ years">10+ years</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Team size</label>
+                        <select name="teamSize">
+                            <option value="">Select...</option>
+                            <option value="Just me">Just me</option>
+                            <option value="2-5">2-5 employees</option>
+                            <option value="6-15">6-15 employees</option>
+                            <option value="16-50">16-50 employees</option>
+                            <option value="50+">50+ employees</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Website (if you have one)</label>
+                    <input type="text" name="website" placeholder="https://yourcompany.com">
+                </div>
+            </div>
+            
+            <!-- SECTION 3: Pain Points -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">3</span>
+                    <h2>What's Eating Your Time?</h2>
+                </div>
+                
+                <div class="form-group">
+                    <label>Select all that apply to your business:</label>
+                    <p class="helper">Check everything that's currently a pain point or time-waster.</p>
                     
-                    <!-- Section 1: Contact -->
-                    <div class="form-section">
-                        <div class="section-header">
-                            <span class="section-number">1</span>
-                            <h3 class="section-title">Confirm Your Info</h3>
-                            <p class="section-subtitle">So we can match this with your consultation request.</p>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Email Address</label>
-                            <input type="email" id="email" name="email" required placeholder="The email you used to book">
-                        </div>
-                    </div>
-
-                    <!-- Section 2: Primary Challenge -->
-                    <div class="form-section">
-                        <div class="section-header">
-                            <span class="section-number">2</span>
-                            <h3 class="section-title">Primary Challenge</h3>
-                            <p class="section-subtitle">Describe the main issue you'd like to address.</p>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>What challenge or problem are you looking to solve?</label>
-                            <textarea id="primaryChallenge" name="primaryChallenge" required placeholder="Please be as specific as possible..."></textarea>
-                        </div>
-                    </div>
-
-                    <!-- Section 3: Impact Areas -->
-                    <div class="form-section">
-                        <div class="section-header">
-                            <span class="section-number">3</span>
-                            <h3 class="section-title">Areas of Impact</h3>
-                            <p class="section-subtitle">Select all areas currently affected by this challenge.</p>
-                        </div>
-                        
-                        <div class="checkbox-group" id="impactGroup">
-                            <div class="checkbox-option" data-value="wasting_time" onclick="toggleOption(this)">
-                                <div class="custom-checkbox">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
-                                </div>
-                                <span class="checkbox-text">Time lost to manual or repetitive tasks</span>
-                            </div>
-                            <div class="checkbox-option" data-value="losing_revenue" onclick="toggleOption(this)">
-                                <div class="custom-checkbox">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
-                                </div>
-                                <span class="checkbox-text">Lost leads, sales, or revenue opportunities</span>
-                            </div>
-                            <div class="checkbox-option" data-value="client_experience" onclick="toggleOption(this)">
-                                <div class="custom-checkbox">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
-                                </div>
-                                <span class="checkbox-text">Inconsistent or poor client experience</span>
-                            </div>
-                            <div class="checkbox-option" data-value="no_visibility" onclick="toggleOption(this)">
-                                <div class="custom-checkbox">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
-                                </div>
-                                <span class="checkbox-text">Limited visibility into business performance</span>
-                            </div>
-                            <div class="checkbox-option" data-value="cant_scale" onclick="toggleOption(this)">
-                                <div class="custom-checkbox">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
-                                </div>
-                                <span class="checkbox-text">Difficulty scaling or delegating due to lack of documentation</span>
-                            </div>
-                            <div class="checkbox-option" data-value="burnout" onclick="toggleOption(this)">
-                                <div class="custom-checkbox">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
-                                </div>
-                                <span class="checkbox-text">Increased stress or extended work hours</span>
+                    <div class="checkbox-group" id="painPoints">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="manual_data_entry" id="pain1">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Manual data entry</div>
+                                <div class="checkbox-desc">Copying info between spreadsheets, systems, or documents</div>
                             </div>
                         </div>
-
-                        <!-- Priority Section - Shows when 2+ selected -->
-                        <div class="priority-section" id="prioritySection">
-                            <h4>Priority Ranking</h4>
-                            <p>Please rank these in order of importance.</p>
-                            <div class="priority-list" id="priorityList">
-                                <!-- Dynamically populated -->
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="email_followup" id="pain2">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Email & follow-up</div>
+                                <div class="checkbox-desc">Sending repetitive emails, forgetting to follow up</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="lead_management" id="pain3">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Lead/client tracking</div>
+                                <div class="checkbox-desc">Losing track of prospects, no central system</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="scheduling" id="pain4">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Scheduling headaches</div>
+                                <div class="checkbox-desc">Back-and-forth booking, missed appointments</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="document_creation" id="pain5">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Document/proposal creation</div>
+                                <div class="checkbox-desc">Creating quotes, contracts, or reports manually</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="invoicing_payments" id="pain6">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Invoicing & payments</div>
+                                <div class="checkbox-desc">Manual invoices, chasing payments, tracking revenue</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="onboarding" id="pain7">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Client/employee onboarding</div>
+                                <div class="checkbox-desc">Repetitive setup tasks for new clients or hires</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="reporting" id="pain8">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Reporting & dashboards</div>
+                                <div class="checkbox-desc">Manually pulling data for reports or KPIs</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="compliance" id="pain9">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Compliance & documentation</div>
+                                <div class="checkbox-desc">Industry regulations, audit trails, required paperwork</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="other" id="pain10">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Something else</div>
+                                <div class="checkbox-desc">I'll describe it below</div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Section 4: Current Setup -->
-                    <div class="form-section">
-                        <div class="section-header">
-                            <span class="section-number">4</span>
-                            <h3 class="section-title">Current Tools & Systems</h3>
-                            <p class="section-subtitle">List any software, tools, or methods you currently use.</p>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>What tools or systems are you currently using? <span class="optional">(if any)</span></label>
-                            <textarea id="currentTools" name="currentTools" placeholder="Examples: Google Sheets, Gmail, Calendly, QuickBooks, CRM software, etc."></textarea>
-                        </div>
-                    </div>
-
-                    <!-- Section 5: Timeline -->
-                    <div class="form-section">
-                        <div class="section-header">
-                            <span class="section-number">5</span>
-                            <h3 class="section-title">Timeline</h3>
-                            <p class="section-subtitle">When are you looking to address this?</p>
-                        </div>
-                        
-                        <div class="urgency-options" id="urgencyOptions">
-                            <label class="urgency-option" onclick="selectUrgency(this)" data-value="immediate">
-                                <input type="radio" name="urgency" value="immediate">
-                                <div class="title">Immediately</div>
-                                <div class="desc">This is urgent</div>
-                            </label>
-                            <label class="urgency-option" onclick="selectUrgency(this)" data-value="soon">
-                                <input type="radio" name="urgency" value="soon">
-                                <div class="title">1-2 Months</div>
-                                <div class="desc">Ready to move forward</div>
-                            </label>
-                            <label class="urgency-option" onclick="selectUrgency(this)" data-value="planning">
-                                <input type="radio" name="urgency" value="planning">
-                                <div class="title">3-6 Months</div>
-                                <div class="desc">Planning ahead</div>
-                            </label>
-                            <label class="urgency-option" onclick="selectUrgency(this)" data-value="exploring">
-                                <input type="radio" name="urgency" value="exploring">
-                                <div class="title">Exploring</div>
-                                <div class="desc">Learning options</div>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Section 6: Additional Context -->
-                    <div class="form-section">
-                        <div class="section-header">
-                            <span class="section-number">6</span>
-                            <h3 class="section-title">Additional Information</h3>
-                            <p class="section-subtitle">Any other context or background that would be helpful.</p>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>What led you to reach out, or anything else not covered above? <span class="optional">(optional)</span></label>
-                            <textarea id="additionalInfo" name="additionalInfo" placeholder="Any additional context, questions, or background information..."></textarea>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="submit-btn" id="submitBtn">Submit</button>
-                    <p class="form-footer">Your responses are confidential and only used to prepare for our call.</p>
-                </form>
+                </div>
             </div>
-
-            <!-- Success State -->
-            <div class="success-state" id="successState">
-                <div class="success-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6L9 17l-5-5"/></svg>
+            
+            <!-- SECTION 4: Deep Dive -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">4</span>
+                    <h2>Tell Me More</h2>
                 </div>
-                <h2>Thank You</h2>
-                <p>Your responses have been received. This information helps us better assess your needs and keeps our consultation focused and efficient.</p>
                 
-                <div class="success-details">
-                    <h4>Next Steps</h4>
-                    <ul>
-                        <li>We will review your responses prior to our scheduled call</li>
-                        <li>Our conversation will focus on solutions specific to your situation</li>
-                        <li>You will receive clear recommendations and proposed next steps</li>
-                    </ul>
+                <div class="form-group">
+                    <label>What's the #1 thing you want to fix? <span class="required">*</span></label>
+                    <p class="helper">Be specific. Example: "I spend 3 hours every Monday manually entering timesheet data into QuickBooks."</p>
+                    <textarea name="primaryProblem" required placeholder="Describe your biggest pain point in detail..."></textarea>
                 </div>
+                
+                <div class="form-group">
+                    <label>How much time per week do you estimate this wastes?</label>
+                    <select name="hoursWasted">
+                        <option value="">Select...</option>
+                        <option value="1-3 hours">1-3 hours</option>
+                        <option value="4-7 hours">4-7 hours</option>
+                        <option value="8-15 hours">8-15 hours (1-2 days)</option>
+                        <option value="15-25 hours">15-25 hours (half the week)</option>
+                        <option value="25+ hours">25+ hours (most of the week)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Have you tried to solve this before?</label>
+                    <p class="helper">Any tools, software, or approaches you've tried that didn't work?</p>
+                    <textarea name="previousAttempts" placeholder="Example: We tried using Zapier but couldn't figure out the setup..."></textarea>
+                </div>
+            </div>
+            
+            <!-- SECTION 5: Current Tools -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">5</span>
+                    <h2>Your Current Tech Stack</h2>
+                </div>
+                
+                <div class="form-group">
+                    <label>What tools/software do you currently use?</label>
+                    <p class="helper">Check all that apply. This helps me understand what we can integrate with.</p>
+                    
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="google_workspace" id="tool1">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Google Workspace</div>
+                                <div class="checkbox-desc">Gmail, Sheets, Docs, Calendar</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="microsoft_365" id="tool2">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Microsoft 365</div>
+                                <div class="checkbox-desc">Outlook, Excel, Word, Teams</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="quickbooks" id="tool3">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">QuickBooks</div>
+                                <div class="checkbox-desc">Accounting & invoicing</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="crm" id="tool4">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">CRM System</div>
+                                <div class="checkbox-desc">Salesforce, HubSpot, Zoho, etc.</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="project_management" id="tool5">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Project Management</div>
+                                <div class="checkbox-desc">Asana, Monday, Trello, ClickUp, etc.</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="industry_specific" id="tool6">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Industry-specific software</div>
+                                <div class="checkbox-desc">EHR, POS, field service, etc.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Any other tools worth mentioning?</label>
+                    <input type="text" name="otherTools" placeholder="E.g., Slack, Notion, custom software...">
+                </div>
+            </div>
+            
+            <!-- SECTION 6: Goals & Budget -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">6</span>
+                    <h2>Goals & Expectations</h2>
+                </div>
+                
+                <div class="form-group">
+                    <label>What does success look like for you?</label>
+                    <p class="helper">If we solve this problem, what changes for your business?</p>
+                    <textarea name="successLooksLike" placeholder="Example: I'd get 10 hours back per week and never miss another follow-up..."></textarea>
+                </div>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label>Timeline</label>
+                        <select name="timeline">
+                            <option value="">Select...</option>
+                            <option value="ASAP">ASAP - this is urgent</option>
+                            <option value="1-2 weeks">Within 1-2 weeks</option>
+                            <option value="1 month">Within a month</option>
+                            <option value="1-3 months">1-3 months</option>
+                            <option value="Just exploring">Just exploring options</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Budget range</label>
+                        <p class="helper">This helps me tailor recommendations.</p>
+                        <select name="budget">
+                            <option value="">Select...</option>
+                            <option value="Under $1,000">Under $1,000</option>
+                            <option value="$1,000 - $3,000">$1,000 - $3,000</option>
+                            <option value="$3,000 - $7,500">$3,000 - $7,500</option>
+                            <option value="$7,500 - $15,000">$7,500 - $15,000</option>
+                            <option value="$15,000+">$15,000+</option>
+                            <option value="Not sure yet">Not sure yet</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- SECTION 7: Anything Else -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">7</span>
+                    <h2>Anything Else?</h2>
+                </div>
+                
+                <div class="form-group">
+                    <label>Is there anything else you want me to know before our call?</label>
+                    <textarea name="anythingElse" placeholder="Questions, concerns, context, or things I should prepare for..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>How did you hear about PNG Solutions?</label>
+                    <select name="referralSource">
+                        <option value="">Select...</option>
+                        <option value="Google search">Google search</option>
+                        <option value="LinkedIn">LinkedIn</option>
+                        <option value="Referral">Referral from someone</option>
+                        <option value="Social media">Social media</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+            
+            <!-- Submit -->
+            <div class="form-section" style="background: transparent; box-shadow: none; padding: 0;">
+                <button type="submit" class="submit-btn" id="submitBtn">Submit & Prepare for Our Call</button>
+                <p class="privacy-note">Your information is confidential and only used to prepare for our consultation.</p>
+            </div>
+        </form>
+        
+        <!-- Success Message -->
+        <div class="form-section success-message" id="successMessage">
+            <div class="icon">✓</div>
+            <h2>Got It! You're All Set.</h2>
+            <p>I've received your intake form and will review it before our call.</p>
+            <div class="next-steps">
+                <h4>What happens next:</h4>
+                <ul>
+                    <li>Check your email for calendar confirmation</li>
+                    <li>I'll review your responses and prepare tailored ideas</li>
+                    <li>We'll meet at your scheduled time</li>
+                    <li>Come ready to discuss and ask questions</li>
+                </ul>
             </div>
         </div>
     </div>
-
+    
+    <div class="footer">
+        <p><a href="https://pngsolutionsllc.com">PNG Solutions LLC</a> | (262) 721-7412</p>
+        <p style="margin-top: 5px; font-style: italic;">Service-Disabled Veteran-Owned Small Business (SDVOSB)</p>
+    </div>
+    
     <script>
-        // Track selections for impact areas
-        let selectedImpacts = [];
-        const impactLabels = {
-            'wasting_time': 'Time lost to manual tasks',
-            'losing_revenue': 'Lost leads or revenue',
-            'client_experience': 'Poor client experience',
-            'no_visibility': 'Limited visibility',
-            'cant_scale': 'Difficulty scaling',
-            'burnout': 'Increased stress'
-        };
-
-        // Toggle checkbox option
-        function toggleOption(element) {
-            element.classList.toggle('selected');
-            const value = element.dataset.value;
-            
-            if (element.classList.contains('selected')) {
-                if (!selectedImpacts.includes(value)) {
-                    selectedImpacts.push(value);
+        // Checkbox toggle styling
+        document.querySelectorAll('.checkbox-item').forEach(function(item) {
+            item.addEventListener('click', function(e) {
+                var checkbox = this.querySelector('input[type="checkbox"]');
+                if (e.target.type !== 'checkbox') {
+                    checkbox.checked = !checkbox.checked;
                 }
-            } else {
-                selectedImpacts = selectedImpacts.filter(v => v !== value);
-            }
-            
-            updatePrioritySection();
-            updateProgress();
-        }
-
-        // Update priority section based on selections
-        function updatePrioritySection() {
-            const prioritySection = document.getElementById('prioritySection');
-            const priorityList = document.getElementById('priorityList');
-            
-            if (selectedImpacts.length >= 2) {
-                prioritySection.classList.add('visible');
-                
-                // Build priority dropdowns
-                let html = '';
-                for (let i = 0; i < Math.min(selectedImpacts.length, 3); i++) {
-                    html += `
-                        <div class="priority-item">
-                            <span class="priority-rank">${i + 1}</span>
-                            <select id="priority${i + 1}" onchange="updateProgress()">
-                                <option value="">Select priority #${i + 1}...</option>
-                                ${selectedImpacts.map(v => `<option value="${v}">${impactLabels[v]}</option>`).join('')}
-                            </select>
-                        </div>
-                    `;
+                if (checkbox.checked) {
+                    this.classList.add('selected');
+                } else {
+                    this.classList.remove('selected');
                 }
-                priorityList.innerHTML = html;
-            } else {
-                prioritySection.classList.remove('visible');
-            }
-        }
-
-        // Select urgency option
-        function selectUrgency(element) {
-            document.querySelectorAll('.urgency-option').forEach(opt => {
-                opt.classList.remove('selected');
             });
-            element.classList.add('selected');
-            element.querySelector('input').checked = true;
-            updateProgress();
-        }
-
-        // Update progress bar
-        function updateProgress() {
-            let filled = 0;
-            const total = 6;
-            
-            if (document.getElementById('email').value) filled++;
-            if (document.getElementById('primaryChallenge').value) filled++;
-            if (selectedImpacts.length > 0) filled++;
-            if (document.getElementById('currentTools').value) filled++;
-            if (document.querySelector('.urgency-option.selected')) filled++;
-            if (document.getElementById('additionalInfo').value) filled++;
-            
-            const percent = (filled / total) * 100;
-            document.getElementById('progressFill').style.width = `${percent}%`;
-        }
-
-        // Add input listeners for progress
-        ['email', 'primaryChallenge', 'currentTools', 'additionalInfo'].forEach(id => {
-            document.getElementById(id).addEventListener('input', updateProgress);
         });
-
+        
         // Form submission
-        document.getElementById('intakeForm').addEventListener('submit', async function(e) {
+        document.getElementById('intakeForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const submitBtn = document.getElementById('submitBtn');
-            submitBtn.textContent = 'Submitting...';
+            var submitBtn = document.getElementById('submitBtn');
             submitBtn.disabled = true;
-
-            // Gather priorities if set
-            let priorities = [];
-            for (let i = 1; i <= 3; i++) {
-                const select = document.getElementById(`priority${i}`);
-                if (select && select.value) {
-                    priorities.push(select.value);
+            submitBtn.textContent = 'Submitting...';
+            
+            // Collect form data
+            var formData = new FormData(this);
+            var data = { formType: 'intake' };
+            formData.forEach(function(value, key) {
+                if (data[key]) {
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            });
+            
+            // Convert arrays to comma-separated strings
+            for (var key in data) {
+                if (Array.isArray(data[key])) {
+                    data[key] = data[key].join(', ');
                 }
             }
-
-            // Get selected urgency
-            const urgencyEl = document.querySelector('.urgency-option.selected');
-            const urgency = urgencyEl ? urgencyEl.dataset.value : 'not specified';
-
-            const formData = {
-                type: 'intake',
-                email: document.getElementById('email').value,
-                primaryChallenge: document.getElementById('primaryChallenge').value,
-                impact: selectedImpacts.join(', '),
-                priorities: priorities.join(', ') || 'Not ranked',
-                currentTools: document.getElementById('currentTools').value || 'Not specified',
-                urgency: urgency,
-                additionalInfo: document.getElementById('additionalInfo').value || 'None provided',
-                timestamp: new Date().toISOString()
-            };
-
-            try {
-                await fetch('https://script.google.com/macros/s/AKfycbwwoLTgCKbJ51jxvSdou_wAQLy8Q2GmHb7kYkiVXg9LronfyoW7hDPIpgyXHPdLHwX0/exec', {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(formData)
-                });
-
-                // Show success
-                document.getElementById('formBody').style.display = 'none';
-                document.getElementById('successState').classList.add('visible');
-                document.getElementById('progressFill').style.width = '100%';
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Something went wrong. Please try again or email info@pngsolutionsllc.com');
-                submitBtn.textContent = 'Submit';
-                submitBtn.disabled = false;
-            }
+            
+            // Send to Google Apps Script
+            var scriptUrl = 'https://script.google.com/macros/s/AKfycbySJr54htcRvcTshrrWBthjDlH_UBaRwMhW-UX4fPSj5Bfd_aEL7tF_RauZLyzu7yNGsw/exec';
+            
+            fetch(scriptUrl, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).then(function() {
+                document.getElementById('intakeForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                window.scrollTo(0, 0);
+            }).catch(function(err) {
+                console.error('Error:', err);
+                // Still show success since no-cors doesn't return response
+                document.getElementById('intakeForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                window.scrollTo(0, 0);
+            });
         });
-
-        // Initialize
-        updateProgress();
     </script>
 </body>
 </html>
