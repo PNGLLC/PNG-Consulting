@@ -1,9 +1,12 @@
+bash
+cat /mnt/user-data/outputs/index.html
+Output
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PNG Solutions LLC | Efficiency, Compliance, Confidence—Delivered.</title>
+    <title>PNG Solutions LLC | Stop Drowning in Busywork. Start Scaling.</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -879,10 +882,12 @@
 
         .tiers {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
             position: relative;
             z-index: 2;
+            max-width: 1100px;
+            margin: 0 auto;
         }
 
         .tier {
@@ -894,6 +899,8 @@
             border: 1px solid rgba(167, 169, 172, 0.15);
             backdrop-filter: blur(10px);
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .tier::before {
@@ -1001,6 +1008,7 @@
         .tier-features {
             list-style: none;
             margin-bottom: 24px;
+            flex-grow: 1;
         }
 
         .tier-features li {
@@ -1039,6 +1047,7 @@
             font-size: 0.85rem;
             letter-spacing: 0.02em;
             transition: all 0.3s ease;
+            margin-top: auto;
         }
 
         .tier:not(.featured) .tier-cta {
@@ -1648,7 +1657,7 @@
             <a href="index.html" class="logo">
                 <div>
                     <div class="logo-text">P<span class="n">N</span>G Solutions LLC</div>
-                    <div class="logo-tagline">Efficiency, Compliance, Confidence—Delivered.</div>
+                    <div class="logo-tagline">Stop Drowning in Busywork. Start Scaling.</div>
                 </div>
             </a>
             
@@ -1671,34 +1680,26 @@
                         </svg>
                     </a>
                     <div class="dropdown">
-                        <a href="services/quick-wins.html" class="dropdown-item">
+                        <a href="#book" class="dropdown-item">
                             <div class="dropdown-item-title">
-                                Quick Wins
+                                Quick Fix
                                 <span class="price">$500 - $1,500</span>
                             </div>
-                            <div class="dropdown-item-desc">Fix your biggest bottleneck fast</div>
+                            <div class="dropdown-item-desc">Fix your biggest time-waster fast</div>
                         </a>
-                        <a href="services/growth.html" class="dropdown-item">
+                        <a href="#book" class="dropdown-item">
                             <div class="dropdown-item-title">
-                                Growth
-                                <span class="price">$2,500 - $7,500</span>
+                                Full System Build
+                                <span class="price">$2,500 - $5,000</span>
                             </div>
-                            <div class="dropdown-item-desc">Full system overhaul for scaling</div>
+                            <div class="dropdown-item-desc">Stop duct-taping your business together</div>
                         </a>
-                        <a href="services/scale.html" class="dropdown-item">
+                        <a href="#book" class="dropdown-item">
                             <div class="dropdown-item-title">
-                                Scale
-                                <span class="price">$10,000+</span>
+                                Full Transformation
+                                <span class="price">Starting at $7,500</span>
                             </div>
-                            <div class="dropdown-item-desc">End-to-end transformation</div>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a href="services/ai-automation.html" class="dropdown-item">
-                            <div class="dropdown-item-title">
-                                AI Automation
-                                <span class="price">$1,500 - $15,000</span>
-                            </div>
-                            <div class="dropdown-item-desc">Custom automation systems</div>
+                            <div class="dropdown-item-desc">Turn your business into a machine</div>
                         </a>
                     </div>
                 </div>
@@ -1751,8 +1752,8 @@
                     <div class="credential-label">Years Experience</div>
                 </div>
                 <div class="credential animate-on-scroll">
-                    <div class="credential-value" data-count="200">200+</div>
-                    <div class="credential-label">Courses Managed</div>
+                    <div class="credential-value">ROI</div>
+                    <div class="credential-label">Guaranteed</div>
                 </div>
                 <div class="credential animate-on-scroll">
                     <div class="credential-value">SDVOSB</div>
@@ -1857,74 +1858,71 @@
                 <p>No bloated retainers. No enterprise-only pricing. Just real solutions that fit your budget.</p>
             </div>
             <div class="tiers">
-                <!-- Quick Wins Tier -->
+                <!-- Quick Fix Tier -->
                 <div class="tier animate-on-scroll">
-                    <div class="tier-name">Quick Wins</div>
-                    <div class="tier-desc">Fix your biggest bottleneck fast</div>
+                    <div class="tier-name">Quick Fix</div>
+                    <div class="tier-desc">Fix your biggest time-waster — fast</div>
                     <div class="tier-price">
                         <div class="price-range">$500 – $1,500</div>
                         <div class="price-timeline">1-2 weeks</div>
                     </div>
                     <ul class="tier-features">
-                        <li>Full operations audit</li>
-                        <li>Bottleneck identification</li>
-                        <li>1-2 workflow automations</li>
+                        <li>60-minute diagnostic call</li>
+                        <li>1-2 automated workflows built for you</li>
+                        <li>AI tool setup (if needed)</li>
                         <li>30-day action plan</li>
+                        <li>14 days of email support</li>
                     </ul>
-                    <a href="services/quick-wins.html" class="tier-cta">Learn More</a>
+                    <a href="#book" class="tier-cta">Fix My Bottleneck →</a>
                 </div>
 
-                <!-- Growth Tier -->
+                <!-- Full System Build Tier -->
                 <div class="tier featured animate-on-scroll">
                     <div class="tier-badge">Most Popular</div>
-                    <div class="tier-name">Growth</div>
-                    <div class="tier-desc">Full system overhaul for scaling</div>
+                    <div class="tier-name">Full System Build</div>
+                    <div class="tier-desc">Stop duct-taping your business together</div>
                     <div class="tier-price">
-                        <div class="price-range">$2,500 – $7,500</div>
-                        <div class="price-timeline">4-6 weeks</div>
+                        <div class="price-range">$2,500 – $5,000</div>
+                        <div class="price-timeline">3-4 weeks</div>
                     </div>
                     <ul class="tier-features">
-                        <li>Everything in Quick Wins</li>
+                        <li>Everything in Quick Fix, plus:</li>
+                        <li>Full operations audit</li>
                         <li>CRM setup & configuration</li>
-                        <li>3-5 workflow automations</li>
-                        <li>Team training session</li>
+                        <li>3-5 automated workflows</li>
+                        <li>AI tools for daily tasks</li>
+                        <li>Team training (up to 3 people)</li>
+                        <li>30 days of support</li>
                     </ul>
-                    <a href="services/growth.html" class="tier-cta">Learn More</a>
+                    <a href="#book" class="tier-cta">Build My System →</a>
                 </div>
 
-                <!-- Scale Tier -->
+                <!-- Full Transformation Tier -->
                 <div class="tier animate-on-scroll">
-                    <div class="tier-name">Scale</div>
-                    <div class="tier-desc">End-to-end transformation</div>
+                    <div class="tier-name">Full Transformation</div>
+                    <div class="tier-desc">Turn your business into a machine</div>
                     <div class="tier-price">
-                        <div class="price-range">$10,000+</div>
-                        <div class="price-timeline">8-12 weeks</div>
+                        <div class="price-range">Starting at $7,500</div>
+                        <div class="price-timeline">6-8 weeks</div>
                     </div>
                     <ul class="tier-features">
-                        <li>Everything in Growth</li>
+                        <li>Everything in Full System Build, plus:</li>
                         <li>Complete operational overhaul</li>
-                        <li>Custom AI integration</li>
-                        <li>90-day support</li>
+                        <li>Custom AI assistant for your business</li>
+                        <li>Advanced automation (AI + Zapier/Make)</li>
+                        <li>Process documentation & SOPs</li>
+                        <li>90 days of priority support</li>
+                        <li>Monthly check-ins for 3 months</li>
                     </ul>
-                    <a href="services/scale.html" class="tier-cta">Learn More</a>
+                    <a href="#book" class="tier-cta">Let's Talk Transformation →</a>
                 </div>
 
-                <!-- AI Automation Tier -->
-                <div class="tier animate-on-scroll">
-                    <div class="tier-name">AI Automation</div>
-                    <div class="tier-desc">Custom automation systems</div>
-                    <div class="tier-price">
-                        <div class="price-range">$1,500 – $15,000</div>
-                        <div class="price-timeline">1-8 weeks</div>
-                    </div>
-                    <ul class="tier-features">
-                        <li>Zero subscription fees</li>
-                        <li>Custom workflows built</li>
-                        <li>You own everything</li>
-                        <li>Training included</li>
-                    </ul>
-                    <a href="services/ai-automation.html" class="tier-cta">Learn More</a>
-                </div>
+            </div>
+            
+            <!-- AI Banner -->
+            <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(167,169,172,0.2); border-radius: 12px; padding: 24px 32px; margin: 40px auto 0; text-align: center; max-width: 1100px;">
+                <p style="font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--white); margin-bottom: 8px;">🤖 All packages include AI setup where it makes sense.</p>
+                <p style="color: var(--gray-light); margin: 0;">No extra charge. No confusing add-ons. Just results.</p>
             </div>
         </div>
     </section>
@@ -1975,61 +1973,33 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label>Your Name *</label>
-                                <input type="text" name="name" required placeholder="John Smith">
+                                <input type="text" name="name" required placeholder="Your name">
                             </div>
                             <div class="form-group">
                                 <label>Email Address *</label>
-                                <input type="email" name="email" required placeholder="john@company.com">
-                            </div>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Phone Number *</label>
-                                <input type="tel" name="phone" required placeholder="(555) 123-4567">
-                            </div>
-                            <div class="form-group">
-                                <label>Business Name</label>
-                                <input type="text" name="business" placeholder="Your Company LLC">
+                                <input type="email" name="email" required placeholder="you@example.com">
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label>What do you need help with? *</label>
-                            <select name="service" required>
-                                <option value="">Select an option...</option>
-                                <option value="Process Automation">Process Automation - Stop doing things manually</option>
-                                <option value="AI Integration">AI Integration - Work smarter with AI tools</option>
-                                <option value="Business Consulting">Business Consulting - Strategy & operations</option>
-                                <option value="Document Systems">Document Systems - Proposals, contracts, templates</option>
-                                <option value="Not Sure">Not sure yet - I just need help</option>
-                            </select>
+                            <label>What's eating up most of your time? (optional)</label>
+                            <textarea name="message" rows="3" placeholder="Tell us what's slowing you down..."></textarea>
                         </div>
                         
-                        <div class="form-group">
-                            <label>Budget Range</label>
-                            <select name="budget">
-                                <option value="">Select a range...</option>
-                                <option value="$500-$1,500">$500 - $1,500 (Quick Wins)</option>
-                                <option value="$2,500-$7,500">$2,500 - $7,500 (Growth)</option>
-                                <option value="$10,000+">$10,000+ (Scale)</option>
-                                <option value="Not sure">Not sure yet</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Tell us more (optional)</label>
-                            <textarea name="message" rows="3" placeholder="What's your biggest time drain right now?"></textarea>
-                        </div>
+                        <!-- Hidden fields for form compatibility -->
+                        <input type="hidden" name="phone" value="Not provided">
+                        <input type="hidden" name="business" value="Not provided">
+                        <input type="hidden" name="service" value="General inquiry">
+                        <input type="hidden" name="budget" value="Not provided">
                         
                         <button type="submit" class="submit-btn">
-                            Book My Free Consultation
+                            Book My Free Call
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                             </svg>
                         </button>
                         
-                        <p class="form-footer">🔒 Your information is secure and will never be shared.</p>
+                        <p class="form-footer">🔒 No spam. No sales pressure. Just a real conversation.</p>
                     </form>
                     
                     <div id="form-success" class="success-message">
@@ -2038,7 +2008,9 @@
                     </div>
                 </div>
                 
-                <p class="cta-guarantee"><strong>100% Satisfaction Guarantee.</strong> If we don't deliver measurable ROI, we keep working until we do.</p>
+                <div style="background: rgba(46, 204, 113, 0.1); border: 1px solid rgba(46, 204, 113, 0.3); padding: 20px 28px; border-radius: 12px; margin: 32px auto 0; text-align: center; max-width: 600px;">
+                    <p class="cta-guarantee" style="margin: 0;"><strong>✅ 100% ROI Guarantee.</strong> If we don't save you time or money, we keep working until we do. No weasel words. No fine print. That's the deal.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -2054,19 +2026,16 @@
                     <a href="index.html" class="logo">
                         <div class="logo-text">P<span class="n">N</span>G Solutions LLC</div>
                     </a>
-                    <div class="footer-tagline">Efficiency, Compliance, Confidence—Delivered.</div>
+                    <div class="footer-tagline">Stop Drowning in Busywork. Start Scaling.</div>
                     <p>Consulting, automation, and AI solutions for small businesses, creators, and local shops ready to get their time back.</p>
                 </div>
                 <div class="footer-contact">
                     <h4>Get In Touch</h4>
-                    <a href="mailto:info@pngsolutionsllc.com">
+                    <a href="/cdn-cgi/l/email-protection#f891969e97b888969f8b97948d8c9197968b94949bd69b9795">
                         <span class="icon">
                             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
                         </span>
-                        info@pngsolutionsllc.com
-                    </a>
-                    <a href="tel:+12627217412">
-                        <span class="icon">
+                        <span class="__cf_email__" data-cfemail="0a63646c654a7a646d                <span class="icon">
                             <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                         </span>
                         (262) 721-7412
