@@ -2140,6 +2140,26 @@
                     recaptchaToken: recaptchaToken
                 };
                 
+                submitBtn.innerHTML = 'Verifying...';
+            submitBtn.disabled = true;
+            
+            try {
+                // Get reCAPTCHA token
+                const recaptchaToken = await grecaptcha.execute('6LcPlEksAAAAAJm6QQfQgRoKi0WKN9LMEDyM3FzB', {action: 'submit'});
+                
+                const formData = {
+                    name: form.name.value,
+                    email: form.email.value,
+                    phone: form.phone.value,
+                    business: form.business.value || 'Not provided',
+                    service: form.service.value,
+                    budget: form.budget.value || 'Not provided',
+                    message: form.message.value || 'No additional details',
+                    timestamp: new Date().toISOString(),
+                    source: window.location.href,
+                    recaptchaToken: recaptchaToken
+                };
+                
                 submitBtn.innerHTML = 'Sending...';
                 
                 await fetch('https://script.google.com/macros/s/AKfycbySJr54htcRvcTshrrWBthjDlH_UBaRwMhW-UX4fPSj5Bfd_aEL7tF_RauZLyzu7yNGsw/exec', {
@@ -2147,7 +2167,6 @@
                     mode: 'no-cors',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(formData)
-                });
                 
                 // Redirect to thank you page
                 window.location.href = 'thank-you.html';
