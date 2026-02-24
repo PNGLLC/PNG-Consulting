@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="facebook-domain-verification" content="sbfv7ovojdq605iz3sn5bujs3tmbvy" />
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1194052612189249');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1194052612189249&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Consultation | PNG Solutions LLC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1B3A5F;
+            --navy-deep: #0F2137;
+            --blue: #4A90A4;
+            --blue-light: #5DA8BD;
+            --blue-glow: rgba(74,144,164,0.15);
+            --gray: #6B7B8A;
+            --white: #FFFFFF;
+            --off-white: #F0F4F7;
+            --text: #C8D6E0;
+            --text-dim: #6B7B8A;
+            --red-soft: #E07A5F;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: var(--navy-deep);
+            color: var(--text);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* === BACKGROUND TEXTURE === */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 0%, var(--blue-glow), transparent 50%),
+                radial-gradient(ellipse at 80% 100%, rgba(74,144,164,0.08), transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* === LAYOUT === */
+        .page {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* === TOP BAR === */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(74,144,164,0.12);
+        }
+
+        .logo {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--blue);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .sdvosb-badge {
+            font-size: 11px;
+            color: var(--text-dim);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border: 1px solid rgba(74,144,164,0.2);
+            border-radius: 4px;
+        }
+
+        /* === HERO SECTION === */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            padding: 60px 0 40px;
+            min-height: 70vh;
+        }
+
+        .hero-content h1 {
+            font-family: 'Montserrat', sans-serif; font-weight: 800;
+            font-size: 48px;
+            font-weight: 400;
+            color: var(--white);
+            line-height: 1.15;
+            margin-bottom: 24px;
+        }
+
+        .hero-content h1 span {
+            color: var(--blue);
+        }
+
+        .hero-content .subtitle {
+            font-size: 19px;
+            line-height: 1.7;
+            color: var(--text);
+            margin-bottom: 36px;
+            max-width: 480px;
+        }
+
+        .trust-points {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 36px;
+        }
+
+        .trust-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 15px;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .trust-point .check {
+            color: var(--blue);
+            font-weight: 700;
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        .micro-proof {
+            display: flex;
+            gap: 32px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(74,144,164,0.12);
+        }
+
+        .micro-proof-item {
+            text-align: center;
+        }
+
+        .micro-proof-item .number {
+            font-family: 'Montserrat', sans-serif; font-weight: 800;
+            font-size: 32px;
+            color: var(--white);
+        }
+
+        .micro-proof-item .label {
+            font-size: 12px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        /* === FORM CARD === */
+        .form-card {
+            background: linear-gradient(135deg, rgba(27,58,95,0.8), rgba(14,34,64,0.95));
+            border: 1px solid rgba(74,144,164,0.2);
+            border-radius: 16px;
+            padding: 40px 36px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 24px 80px rgba(0,0,0,0.3);
+        }
+
+        .form-card h2 {
+            font-family: 'Montserrat', sans-serif; font-weight: 800;
+            font-size: 28px;
+            color: var(--white);
+            margin-bottom: 6px;
+        }
+
+        .form-card .form-subtitle {
+            font-size: 15px;
+            color: var(--text-dim);
+            margin-bottom: 28px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(14,34,64,0.6);
+            border: 1px solid rgba(74,144,164,0.2);
+            border-radius: 8px;
+            color: var(--white);
+            font-family: 'Roboto', sans-serif;
+            font-size: 15px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px var(--blue-glow);
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-dim);
+        }
+
+        .form-group select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='%237A8FA0'%3E%3Cpath d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 16px center;
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            background: var(--navy-deep);
+            color: var(--white);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: var(--blue);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            background: var(--blue-light);
+            box-shadow: 0 8px 30px rgba(74,144,164,0.3);
+            transform: translateY(-1px);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-note {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-top: 14px;
+        }
+
+        /* === PAIN POINTS STRIP === */
+        .pain-strip {
+            padding: 50px 0;
+            border-top: 1px solid rgba(74,144,164,0.08);
+        }
+
+        .pain-strip h3 {
+            font-family: 'Montserrat', sans-serif; font-weight: 800;
+            font-size: 30px;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pain-card {
+            background: rgba(27,58,95,0.4);
+            border: 1px solid rgba(74,144,164,0.1);
+            border-radius: 12px;
+            padding: 28px 24px;
+            transition: border-color 0.3s, transform 0.2s;
+        }
+
+        .pain-card:hover {
+            border-color: rgba(74,144,164,0.3);
+            transform: translateY(-2px);
+        }
+
+        .pain-card .pain-icon {
+            font-size: 28px;
+            margin-bottom: 14px;
+        }
+
+        .pain-card h4 {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .pain-card p {
+            font-size: 14px;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* === HOW IT WORKS === */
+        .how-section {
+            padding: 50px 0;
+            border-top: 1px solid rgba(74,144,164,0.08);
+        }
+
+        .how-section h3 {
+            font-family: 'Montserrat', sans-serif; font-weight: 800;
+            font-size: 30px;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: var(--white);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .step h4 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 14px;
+            color: var(--text-dim);
+            line-height: 1.6;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        /* === BOTTOM CTA === */
+        .bottom-cta {
+            text-align: center;
+            padding: 50px 0 30px;
+            border-top: 1px solid rgba(74,144,164,0.08);
+        }
+
+        .bottom-cta h3 {
+            font-family: 'Montserrat', sans-serif; font-weight: 800;
+            font-size: 32px;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .bottom-cta p {
+            font-size: 17px;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+
+        .bottom-cta a {
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--blue);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        .bottom-cta a:hover {
+            background: var(--blue-light);
+            box-shadow: 0 8px 30px rgba(74,144,164,0.3);
+        }
+
+        /* === FOOTER === */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            border-top: 1px solid rgba(74,144,164,0.08);
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        .footer a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        /* === SUCCESS STATE === */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .form-success .success-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+
+        .form-success h3 {
+            font-family: 'Montserrat', sans-serif; font-weight: 800;
+            font-size: 24px;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .form-success p {
+            color: var(--text);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* === MOBILE === */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 0;
+                min-height: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 34px;
+            }
+
+            .hero-content .subtitle {
+                font-size: 16px;
+            }
+
+            .micro-proof {
+                gap: 20px;
+            }
+
+            .form-card {
+                padding: 28px 22px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .pain-grid,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .top-bar {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+        }
+
+        /* === ANIMATIONS === */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content { animation: fadeUp 0.6s ease-out; }
+        .form-card { animation: fadeUp 0.6s ease-out 0.15s both; }
+    </style>
+</head>
+<body>
+
+<div class="page">
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="logo">PNG Solutions</div>
+        <div class="sdvosb-badge">SDVOSB Certified &middot; San Antonio, TX</div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Stop doing everything <span>manually.</span></h1>
+            <p class="subtitle">You're spending hours every week on tasks a system could handle in minutes. We find the bottleneck, build the fix, and get you back to running your business.</p>
+
+            <div class="trust-points">
+                <div class="trust-point">
+                    <span class="check">&#10003;</span>
+                    <span>Free 30-minute consultation — no pitch, just answers</span>
+                </div>
+                <div class="trust-point">
+                    <span class="check">&#10003;</span>
+                    <span>Walk away with a clear action plan even if we never work together</span>
+                </div>
+                <div class="trust-point">
+                    <span class="check">&#10003;</span>
+                    <span>Solutions start at $500 — not enterprise pricing</span>
+                </div>
+            </div>
+
+            <div class="micro-proof">
+                <div class="micro-proof-item">
+                    <div class="number">20+</div>
+                    <div class="label">Years Experience</div>
+                </div>
+                <div class="micro-proof-item">
+                    <div class="number">100%</div>
+                    <div class="label">ROI Guarantee</div>
+                </div>
+                <div class="micro-proof-item">
+                    <div class="number">200+</div>
+                    <div class="label">Systems Built</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FORM -->
+        <div class="form-card">
+            <h2>Get your free consultation</h2>
+            <p class="form-subtitle">Takes 30 seconds. We'll reach out within 24 hours.</p>
+
+            <form id="lead-form">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" placeholder="First and last name" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="you@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone (optional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="struggle">What's eating most of your time?</label>
+                    <select id="struggle" name="service">
+                        <option value="General inquiry">Select one...</option>
+                        <option value="Process Automation">Manual data entry / repetitive tasks</option>
+                        <option value="AI Integration">Want to use AI but don't know where to start</option>
+                        <option value="Document Systems">Paperwork, forms, and document chaos</option>
+                        <option value="Lead Management">Leads falling through the cracks</option>
+                        <option value="General Operations">Everything feels held together with duct tape</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Anything else? (optional)</label>
+                    <textarea id="message" name="message" rows="3" placeholder="Tell us a bit about your situation..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Book My Free Consultation</button>
+                <p class="form-note">No spam. No sales pressure. Just a real conversation.</p>
+            </form>
+
+            <div class="form-success" id="form-success">
+                <div class="success-icon">&#10003;</div>
+                <h3>You're all set.</h3>
+                <p>We'll reach out within 24 hours to schedule your free consultation. Check your inbox for a confirmation.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAIN POINTS -->
+    <div class="pain-strip">
+        <h3>Sound familiar?</h3>
+        <div class="pain-grid">
+            <div class="pain-card">
+                <div class="pain-icon">&#9201;</div>
+                <h4>Drowning in busywork</h4>
+                <p>You're spending 10+ hours a week on tasks that should take 2. Data entry, follow-ups, scheduling — it never stops.</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">&#128269;</div>
+                <h4>Leads slipping away</h4>
+                <p>By the time you follow up, they've moved on. Manual lead management means lost revenue every single week.</p>
+            </div>
+            <div class="pain-card">
+                <div class="pain-icon">&#129302;</div>
+                <h4>AI-curious but stuck</h4>
+                <p>You know AI could help your business but don't know where to start or who to trust. We cut through the noise.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="how-section">
+        <h3>How it works</h3>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>We talk</h4>
+                <p>30-minute call. You tell us what's eating your time. We listen and ask the right questions.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>You get a plan</h4>
+                <p>Within days, you'll have a custom roadmap with clear next steps and fixed pricing. No surprises.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>We build it</h4>
+                <p>We implement, train your team, and guarantee results. If it doesn't save you time or money, we keep working until it does.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM CTA -->
+    <div class="bottom-cta">
+        <h3>Ready to get your time back?</h3>
+        <p>Book your free consultation. 30 minutes. No obligation. Real answers.</p>
+        <a href="#lead-form" onclick="document.getElementById('name').focus(); return false;">Book My Free Consultation</a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        &copy; 2025 PNG Solutions LLC. All rights reserved. &middot;
+        <a href="https://pngsolutionsllc.com">pngsolutionsllc.com</a> &middot;
+        <a href="mailto:info@pngsolutionsllc.com">info@pngsolutionsllc.com</a> &middot;
+        (262) 721-7412
+    </div>
+
+</div>
+
+<script>
+document.getElementById('lead-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const btn = form.querySelector('.submit-btn');
+    const originalText = btn.textContent;
+
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+
+    const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value || 'Not provided',
+        business: 'Not provided',
+        service: form.service.value,
+        budget: 'Not provided',
+        message: form.message.value || 'No additional details',
+        timestamp: new Date().toISOString(),
+        source: 'Facebook Ad Landing Page - ' + window.location.href
+    };
+
+    try {
+        await fetch('https://script.google.com/macros/s/AKfycbwe4lzBrJRRaOOhH3uGwwtOJf2LzXCFTOSTP7_PbbJEOCSCA8rVaY_SawXcG67BgUux/exec', {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+        });
+
+        // Hide form, show success
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+
+        // Fire Facebook Lead event
+        if (typeof fbq === 'function') {
+            fbq('track', 'Lead');
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        btn.textContent = 'Something went wrong — try again';
+        btn.disabled = false;
+        setTimeout(() => { btn.textContent = originalText; }, 3000);
+    }
+});
+</script>
+
+</body>
+</html>
