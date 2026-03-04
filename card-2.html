@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Reggie Robinson | PNG Solutions LLC</title>
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📇</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #002147;
+            --navy-dark: #001229;
+            --blue: #0056A0;
+            --blue-light: #0068C3;
+            --charcoal: #4A4A4A;
+            --gray: #6D6E70;
+            --silver: #B0B3B8;
+            --silver-light: #D4D6DA;
+            --off-white: #F5F6F8;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        html, body { height: 100%; overflow-x: hidden; }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(160deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-dark) 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .bg-pattern {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none; overflow: hidden; z-index: 0;
+        }
+        .bg-pattern::before {
+            content: '';
+            position: absolute;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(0, 86, 160, 0.12) 0%, transparent 70%);
+            top: -200px; right: -200px;
+            animation: pulse 8s ease-in-out infinite;
+        }
+        .bg-pattern::after {
+            content: '';
+            position: absolute;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(0, 33, 71, 0.15) 0%, transparent 70%);
+            bottom: -100px; left: -100px;
+            animation: pulse 6s ease-in-out infinite reverse;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+
+        .card {
+            position: relative; z-index: 1;
+            width: 100%; max-width: 420px;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out;
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+            padding: 32px 24px 80px;
+            text-align: center;
+            position: relative;
+        }
+        .card-header::after {
+            content: '';
+            position: absolute; bottom: -2px; left: 0; right: 0;
+            height: 50px;
+            background: var(--white);
+            border-radius: 50% 50% 0 0;
+        }
+
+        .badge {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(0, 86, 160, 0.2);
+            border: 1px solid rgba(0, 86, 160, 0.4);
+            color: var(--silver);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem; font-weight: 700;
+            padding: 6px 14px; border-radius: 4px;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            margin-bottom: 20px;
+            animation: fadeIn 0.6s ease-out 0.2s both;
+        }
+        .badge::before { content: '★'; font-size: 0.6rem; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .profile-photo {
+            width: 120px; height: 120px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+            margin: 0 auto 16px;
+            position: relative; z-index: 2;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.4rem; font-weight: 800;
+            color: var(--white);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            animation: scaleIn 0.5s ease-out 0.1s both;
+        }
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .profile-photo::after {
+            content: ''; position: absolute; inset: -4px;
+            border-radius: 50%;
+            border: 2px solid rgba(176, 179, 184, 0.2);
+        }
+
+        .name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.7rem; font-weight: 800;
+            color: var(--white); margin-bottom: 4px;
+            animation: fadeIn 0.6s ease-out 0.3s both;
+        }
+        .title {
+            font-size: 0.9rem; color: var(--silver);
+            font-weight: 500;
+            animation: fadeIn 0.6s ease-out 0.4s both;
+        }
+
+        .card-body { padding: 0 24px 20px; margin-top: -20px; }
+
+        .company-block {
+            text-align: center; margin-bottom: 20px;
+            animation: fadeIn 0.6s ease-out 0.5s both;
+        }
+        .company-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem; font-weight: 700;
+            color: var(--navy); margin-bottom: 4px;
+        }
+        .tagline {
+            font-size: 0.75rem; color: var(--gray);
+            font-weight: 500; letter-spacing: 0.04em;
+        }
+
+        .contact-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+            margin-bottom: 20px;
+            animation: fadeIn 0.6s ease-out 0.6s both;
+        }
+        .contact-btn {
+            display: flex; align-items: center; gap: 12px;
+            padding: 14px;
+            background: var(--off-white);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .contact-btn:hover {
+            background: rgba(0, 86, 160, 0.06);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 33, 71, 0.08);
+        }
+        .contact-btn .icon {
+            width: 36px; height: 36px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+        }
+        .contact-btn .icon svg { width: 18px; height: 18px; fill: var(--white); }
+        .contact-label {
+            display: block;
+            font-size: 0.65rem; font-weight: 600;
+            color: var(--gray); text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .contact-value {
+            display: block;
+            font-size: 0.78rem; font-weight: 600;
+            color: var(--navy);
+            overflow: hidden; text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .social-row {
+            display: flex; justify-content: center; gap: 12px;
+            margin-bottom: 20px;
+            animation: fadeIn 0.6s ease-out 0.7s both;
+        }
+        .social-btn {
+            width: 44px; height: 44px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 8px;
+            background: var(--off-white);
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .social-btn:hover {
+            background: var(--navy);
+        }
+        .social-btn svg { width: 20px; height: 20px; fill: var(--navy); transition: fill 0.2s; }
+        .social-btn:hover svg { fill: var(--white); }
+
+        .cta-group {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+            animation: fadeIn 0.6s ease-out 0.8s both;
+        }
+        .cta-btn {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 14px 16px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82rem; font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .cta-primary {
+            background: var(--blue); color: var(--white);
+        }
+        .cta-primary:hover {
+            background: var(--blue-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 86, 160, 0.3);
+        }
+        .cta-secondary {
+            background: var(--off-white); color: var(--navy);
+            border: 1px solid var(--silver-light);
+        }
+        .cta-secondary:hover {
+            background: var(--navy); color: var(--white);
+            transform: translateY(-2px);
+        }
+        .cta-btn svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .card-footer {
+            text-align: center; padding: 16px 24px 20px;
+            border-top: 1px solid var(--silver-light);
+            animation: fadeIn 0.6s ease-out 1s both;
+        }
+        .location {
+            display: flex; align-items: center; justify-content: center; gap: 6px;
+            color: var(--gray); font-size: 0.85rem;
+        }
+        .location svg { width: 16px; height: 16px; fill: var(--blue); }
+        .industries {
+            display: flex; justify-content: center; gap: 8px;
+            margin-top: 12px; flex-wrap: wrap;
+        }
+        .industry-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.65rem; font-weight: 700;
+            padding: 4px 12px;
+            background: rgba(0, 86, 160, 0.08);
+            color: var(--blue);
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        @media (max-width: 380px) {
+            .card { border-radius: 12px; }
+            .card-header { padding: 24px 20px 70px; }
+            .name { font-size: 1.5rem; }
+            .card-body { padding: 0 20px 20px; }
+            .cta-group { grid-template-columns: 1fr; }
+            .contact-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="badge">SDVOSB Certified</div>
+            <div class="profile-photo">RR</div>
+            <h1 class="name">Reggie Robinson</h1>
+            <p class="title">Founder &amp; CEO</p>
+        </div>
+
+        <div class="card-body">
+            <div class="company-block">
+                <div class="company-name">PNG Solutions LLC</div>
+                <div class="tagline">Efficiency. Compliance. Confidence &mdash; Delivered.</div>
+            </div>
+
+            <div class="contact-grid">
+                <a href="tel:+12627217412" class="contact-btn">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">Phone</span>
+                        <span class="contact-value">(262) 721-7412</span>
+                    </div>
+                </a>
+                <a href="mailto:info@pngsolutionsllc.com" class="contact-btn">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">info@pngsolutionsllc.com</span>
+                    </div>
+                </a>
+                <a href="https://pngsolutionsllc.com" target="_blank" class="contact-btn">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">Website</span>
+                        <span class="contact-value">pngsolutionsllc.com</span>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/pngsolutionsllc/" target="_blank" class="contact-btn">
+                    <div class="icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">LinkedIn</span>
+                        <span class="contact-value">Connect with me</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="cta-group">
+                <a href="https://calendly.com/llc-pngsolutions/free-15-min-process-audit" target="_blank" class="cta-btn cta-primary">
+                    <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2z"/></svg>
+                    Request Assessment
+                </a>
+                <a href="#" class="cta-btn cta-secondary" id="saveContact">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+                    Save Contact
+                </a>
+            </div>
+        </div>
+
+        <div class="card-footer">
+            <div class="location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                San Antonio, Texas
+            </div>
+            <div class="industries">
+                <span class="industry-tag">Healthcare</span>
+                <span class="industry-tag">Construction</span>
+                <span class="industry-tag">Government Contractors</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('saveContact').addEventListener('click', function(e) {
+            e.preventDefault();
+            const vCard = `BEGIN:VCARD
+VERSION:3.0
+FN:Reggie Robinson
+N:Robinson;Reggie;;;
+ORG:PNG Solutions LLC
+TITLE:Founder & CEO
+TEL;TYPE=WORK,VOICE:+12627217412
+EMAIL;TYPE=WORK:info@pngsolutionsllc.com
+URL:https://pngsolutionsllc.com
+URL;TYPE=LinkedIn:https://www.linkedin.com/in/pngsolutionsllc/
+ADR;TYPE=WORK:;;San Antonio;Texas;;USA
+NOTE:PNG Solutions LLC — Operational Efficiency Consulting for healthcare practices, construction firms, and government contractors. Service-Disabled Veteran-Owned Small Business (SDVOSB).
+END:VCARD`;
+            const blob = new Blob([vCard], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'Reggie_Robinson_PNG_Solutions.vcf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            this.innerHTML = '<svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Saved!';
+            this.style.background = 'var(--blue)';
+            this.style.color = 'var(--white)';
+            setTimeout(() => {
+                this.innerHTML = '<svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg> Save Contact';
+                this.style.background = '';
+                this.style.color = '';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
