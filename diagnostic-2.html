@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operational Efficiency Diagnostic | PNG Solutions LLC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #002147;
+            --navy-dark: #001229;
+            --navy-light: #0A3260;
+            --blue: #0056A0;
+            --blue-light: #0068C3;
+            --charcoal: #4A4A4A;
+            --gray: #6D6E70;
+            --silver: #B0B3B8;
+            --silver-light: #D4D6DA;
+            --off-white: #F5F6F8;
+            --white: #FFFFFF;
+            --warning: #C45500;
+            --danger: #B91C1C;
+            --success: #0F766E;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .top-bar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(0, 18, 41, 0.97);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(176, 179, 184, 0.1);
+            padding: 14px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800; font-size: 1.05rem;
+        }
+        .logo .n { color: var(--silver); }
+        .top-progress {
+            flex: 1; max-width: 360px; margin: 0 20px;
+            height: 4px; background: var(--navy-light);
+            border-radius: 4px; overflow: hidden;
+        }
+        .top-progress-fill {
+            height: 100%; background: linear-gradient(90deg, var(--blue), var(--silver));
+            border-radius: 4px;
+            transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%;
+        }
+        .step-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75rem; color: var(--silver);
+            white-space: nowrap; font-weight: 600;
+        }
+
+        .container { max-width: 720px; margin: 0 auto; padding: 80px 20px 40px; }
+
+        .hero {
+            text-align: center; padding: 50px 0 30px;
+        }
+        .sdvosb-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(176, 179, 184, 0.08);
+            border: 1px solid rgba(176, 179, 184, 0.15);
+            padding: 8px 16px; border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem; font-weight: 700;
+            color: var(--silver); text-transform: uppercase;
+            letter-spacing: 0.08em; margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 900; margin-bottom: 16px;
+            line-height: 1.2;
+        }
+        .hero p { color: var(--silver); font-size: 1rem; max-width: 560px; margin: 0 auto 32px; line-height: 1.7; }
+        .hero-start {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--blue); color: var(--white);
+            padding: 16px 32px; border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; font-size: 0.9rem;
+            border: none; cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .hero-start:hover {
+            background: var(--blue-light); transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 86, 160, 0.3);
+        }
+        .hero-start svg { width: 18px; height: 18px; fill: currentColor; }
+        .hero-time {
+            display: block; margin-top: 12px;
+            font-size: 0.8rem; color: var(--gray);
+        }
+
+        /* Quiz Sections */
+        .quiz-section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        .quiz-section.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(176, 179, 184, 0.1);
+            border-radius: 8px; padding: 32px;
+            margin-bottom: 24px;
+        }
+        .question-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem; font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .question-card .context {
+            font-size: 0.88rem; color: var(--silver);
+            margin-bottom: 20px; line-height: 1.6;
+        }
+
+        .option-grid { display: grid; gap: 10px; }
+        .option {
+            display: flex; align-items: center; gap: 14px;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(176, 179, 184, 0.12);
+            border-radius: 6px; cursor: pointer;
+            transition: all 0.2s;
+        }
+        .option:hover {
+            background: rgba(0, 86, 160, 0.08);
+            border-color: rgba(0, 86, 160, 0.3);
+        }
+        .option.selected {
+            background: rgba(0, 86, 160, 0.12);
+            border-color: var(--blue);
+        }
+        .option input { display: none; }
+        .option-dot {
+            width: 20px; height: 20px;
+            border: 2px solid var(--silver);
+            border-radius: 50%; flex-shrink: 0;
+            transition: all 0.2s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .option.selected .option-dot {
+            border-color: var(--blue);
+            background: var(--blue);
+        }
+        .option.selected .option-dot::after {
+            content: ''; width: 8px; height: 8px;
+            background: var(--white); border-radius: 50%;
+        }
+        .option-text { font-size: 0.92rem; color: var(--silver); }
+        .option.selected .option-text { color: var(--white); }
+
+        .nav-buttons {
+            display: flex; justify-content: space-between; gap: 16px;
+            margin-top: 24px;
+        }
+        .btn-back, .btn-next {
+            padding: 14px 28px; border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; font-size: 0.85rem;
+            border: none; cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-back {
+            background: transparent;
+            border: 1px solid rgba(176, 179, 184, 0.2);
+            color: var(--silver);
+        }
+        .btn-back:hover { border-color: var(--silver); color: var(--white); }
+        .btn-next {
+            background: var(--blue); color: var(--white);
+            margin-left: auto;
+        }
+        .btn-next:hover {
+            background: var(--blue-light); transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 86, 160, 0.3);
+        }
+        .btn-next:disabled { opacity: 0.4; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        /* Results */
+        .results { display: none; animation: fadeIn 0.5s ease; }
+        .results.active { display: block; }
+
+        .score-card {
+            text-align: center; padding: 48px 32px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(176, 179, 184, 0.1);
+            border-radius: 8px; margin-bottom: 24px;
+        }
+        .score-ring {
+            width: 140px; height: 140px; margin: 0 auto 24px;
+            border-radius: 50%; position: relative;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .score-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem; font-weight: 900;
+        }
+        .score-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem; font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .score-desc {
+            color: var(--silver); font-size: 0.95rem;
+            max-width: 480px; margin: 0 auto; line-height: 1.7;
+        }
+
+        .findings {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(176, 179, 184, 0.1);
+            border-radius: 8px; padding: 32px;
+            margin-bottom: 24px;
+        }
+        .findings h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem; font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .finding-item {
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(176, 179, 184, 0.08);
+        }
+        .finding-item:last-child { border-bottom: none; }
+        .finding-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+        .finding-desc { color: var(--silver); font-size: 0.88rem; line-height: 1.6; }
+
+        .results-cta {
+            text-align: center; padding: 40px 32px;
+            background: rgba(0, 86, 160, 0.08);
+            border: 1px solid rgba(0, 86, 160, 0.2);
+            border-radius: 8px;
+        }
+        .results-cta h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.3rem; font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .results-cta p {
+            color: var(--silver); margin-bottom: 24px;
+            font-size: 0.95rem;
+        }
+        .results-cta a {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--blue); color: var(--white);
+            padding: 16px 32px; border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; font-size: 0.9rem;
+            text-decoration: none; transition: all 0.3s;
+        }
+        .results-cta a:hover {
+            background: var(--blue-light); transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 86, 160, 0.3);
+        }
+
+        .footer {
+            text-align: center; padding: 40px 20px;
+            border-top: 1px solid rgba(176, 179, 184, 0.08);
+            margin-top: 40px;
+        }
+        .footer p { color: var(--gray); font-size: 0.8rem; }
+        .footer a { color: var(--silver); text-decoration: none; }
+
+        @media (max-width: 600px) {
+            .top-bar { padding: 12px 16px; }
+            .top-progress { max-width: 160px; }
+            .question-card { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="logo">P<span class="n">N</span>G Solutions</div>
+        <div class="top-progress"><div class="top-progress-fill" id="progressFill"></div></div>
+        <div class="step-label" id="stepLabel">Start</div>
+    </div>
+
+    <div class="container">
+        <!-- Hero -->
+        <div class="hero" id="heroSection">
+            <div class="sdvosb-badge">Service-Disabled Veteran-Owned Small Business</div>
+            <h1>How Much Are Your Operations Quietly Costing You?</h1>
+            <p>Answer 6 questions. In under 3 minutes, we'll identify where your processes may be leaking revenue, wasting labor, or creating compliance risk.</p>
+            <button class="hero-start" onclick="startQuiz()">
+                Start the Diagnostic
+                <svg viewBox="0 0 24 24"><path d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </button>
+            <span class="hero-time">Takes about 2&ndash;3 minutes. No email required.</span>
+        </div>
+
+        <!-- Questions -->
+        <div id="quizContainer"></div>
+
+        <!-- Results -->
+        <div class="results" id="resultsSection"></div>
+    </div>
+
+    <div class="footer">
+        <p><a href="https://pngsolutionsllc.com">PNG Solutions LLC</a> &nbsp;|&nbsp; San Antonio, Texas</p>
+        <p style="margin-top: 6px;">&copy; 2025 PNG Solutions LLC. All rights reserved.</p>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                title: "How do new leads or referrals get captured?",
+                context: "The gap between a lead arriving and your team responding is where most revenue leakage begins.",
+                options: [
+                    { text: "Structured intake system with documented follow-up within hours", score: 3 },
+                    { text: "Someone checks voicemail or email and follows up when they can", score: 2 },
+                    { text: "It depends on who's available — no consistent process", score: 1 },
+                    { text: "We don't really track this", score: 0 }
+                ]
+            },
+            {
+                title: "When scope changes or change orders happen, how are they documented?",
+                context: "Undocumented commitments are the single largest source of margin erosion in construction and service businesses.",
+                options: [
+                    { text: "Formal change documentation with approval workflows", score: 3 },
+                    { text: "Email or text confirmation, sometimes written up later", score: 2 },
+                    { text: "Verbal agreements that may or may not get recorded", score: 1 },
+                    { text: "Changes happen and we deal with it after the fact", score: 0 }
+                ]
+            },
+            {
+                title: "How much time does your team spend on manual data entry or duplicate work?",
+                context: "Staff hours consumed by manual processes are hours not spent on revenue-generating activity.",
+                options: [
+                    { text: "Minimal — most data flows between systems once entered", score: 3 },
+                    { text: "Some duplication, but it's manageable", score: 2 },
+                    { text: "Several hours a week across the team", score: 1 },
+                    { text: "Significant — we re-enter the same information in multiple places daily", score: 0 }
+                ]
+            },
+            {
+                title: "If you were audited tomorrow, how confident are you in your documentation?",
+                context: "Compliance gaps don't just create regulatory risk — they erode client trust and operational credibility.",
+                options: [
+                    { text: "Very confident — documentation is systematic and current", score: 3 },
+                    { text: "Mostly good, but there are gaps we'd need to fill quickly", score: 2 },
+                    { text: "We'd need significant time to pull things together", score: 1 },
+                    { text: "It would be a serious problem", score: 0 }
+                ]
+            },
+            {
+                title: "Where do approvals, handoffs, or decisions typically get stuck?",
+                context: "Bottlenecks multiply. A one-day delay in approval creates cascading delays across every downstream task.",
+                options: [
+                    { text: "Rarely stuck — clear owners and escalation paths", score: 3 },
+                    { text: "Occasionally delayed, usually resolved within a day", score: 2 },
+                    { text: "Frequently stalled waiting on one person or one step", score: 1 },
+                    { text: "Constantly — things sit for days because no one knows who's responsible", score: 0 }
+                ]
+            },
+            {
+                title: "Can you see, right now, the operational health of your business?",
+                context: "If you can't measure it, you can't manage it. Operational visibility is the foundation of every improvement.",
+                options: [
+                    { text: "Yes — dashboards or reports that show key metrics in real time", score: 3 },
+                    { text: "Partially — some metrics tracked, but not a full picture", score: 2 },
+                    { text: "We check spreadsheets occasionally, but nothing real-time", score: 1 },
+                    { text: "No — I rely on gut feeling and asking my team", score: 0 }
+                ]
+            }
+        ];
+
+        let currentStep = 0;
+        let answers = [];
+        const totalSteps = questions.length;
+
+        function startQuiz() {
+            document.getElementById('heroSection').style.display = 'none';
+            renderQuestion(0);
+        }
+
+        function renderQuestion(index) {
+            currentStep = index;
+            updateProgress();
+            const q = questions[index];
+            const container = document.getElementById('quizContainer');
+
+            let html = '<div class="quiz-section active"><div class="question-card">';
+            html += '<h3>' + q.title + '</h3>';
+            html += '<p class="context">' + q.context + '</p>';
+            html += '<div class="option-grid">';
+            q.options.forEach(function(opt, i) {
+                const selected = answers[index] === i ? ' selected' : '';
+                html += '<div class="option' + selected + '" onclick="selectOption(' + index + ',' + i + ',' + opt.score + ')">';
+                html += '<div class="option-dot"></div>';
+                html += '<div class="option-text">' + opt.text + '</div>';
+                html += '</div>';
+            });
+            html += '</div></div>';
+            html += '<div class="nav-buttons">';
+            if (index > 0) {
+                html += '<button class="btn-back" onclick="renderQuestion(' + (index - 1) + ')">Back</button>';
+            }
+            const isLast = index === totalSteps - 1;
+            const disabled = answers[index] === undefined ? ' disabled' : '';
+            html += '<button class="btn-next" id="nextBtn"' + disabled + ' onclick="' + (isLast ? 'showResults()' : 'renderQuestion(' + (index + 1) + ')') + '">';
+            html += isLast ? 'See My Results' : 'Next';
+            html += '</button></div></div>';
+
+            container.innerHTML = html;
+        }
+
+        function selectOption(qIndex, optIndex, score) {
+            answers[qIndex] = optIndex;
+            document.querySelectorAll('.option').forEach(function(el, i) {
+                el.classList.toggle('selected', i === optIndex);
+            });
+            document.getElementById('nextBtn').disabled = false;
+        }
+
+        function updateProgress() {
+            var pct = ((currentStep + 1) / totalSteps) * 100;
+            document.getElementById('progressFill').style.width = pct + '%';
+            document.getElementById('stepLabel').textContent = 'Question ' + (currentStep + 1) + ' of ' + totalSteps;
+        }
+
+        function showResults() {
+            document.getElementById('quizContainer').innerHTML = '';
+            var total = 0;
+            answers.forEach(function(ansIdx, qIdx) {
+                total += questions[qIdx].options[ansIdx].score;
+            });
+            var maxScore = totalSteps * 3;
+            var pct = Math.round((total / maxScore) * 100);
+
+            var level, levelColor, desc, findings;
+
+            if (pct >= 75) {
+                level = 'Strong Foundation';
+                levelColor = 'var(--success)';
+                desc = 'Your operations show signs of intentional design. There may still be isolated gaps worth closing — and a diagnostic would confirm where the remaining value sits.';
+                findings = [
+                    { title: 'Potential Optimization Points', desc: 'Even strong operations have 1-2 areas where small improvements yield significant returns. A diagnostic identifies exactly where.' },
+                    { title: 'Scalability Check', desc: 'Processes that work at current volume don\'t always survive growth. Worth stress-testing before your next phase.' }
+                ];
+            } else if (pct >= 45) {
+                level = 'Moderate Process Leakage';
+                levelColor = 'var(--warning)';
+                desc = 'You have some structure in place, but gaps are likely costing you revenue, time, or compliance exposure. This is the most common — and most fixable — position.';
+                findings = [
+                    { title: 'Revenue Leakage Likely', desc: 'Inconsistent lead response, undocumented changes, or manual bottlenecks are common at this level — each quietly eroding margin.' },
+                    { title: 'Time Loss Probable', desc: 'Your team is likely spending 10-20 hours per week on tasks that could be systematized or eliminated entirely.' },
+                    { title: 'Compliance Exposure', desc: 'Documentation gaps at this level create risk during audits, client disputes, or regulatory reviews.' }
+                ];
+            } else {
+                level = 'Significant Process Risk';
+                levelColor = 'var(--danger)';
+                desc = 'Your operations have substantial gaps that are actively costing you money, time, and potentially compliance standing. The good news: this means the highest ROI from intervention.';
+                findings = [
+                    { title: 'Active Revenue Loss', desc: 'Without structured lead capture and documented processes, you are almost certainly losing opportunities you never see.' },
+                    { title: 'Critical Time Drain', desc: 'Manual processes and lack of visibility are consuming staff capacity that should be directed at revenue-generating work.' },
+                    { title: 'Compliance Vulnerability', desc: 'Audit readiness is a serious concern. Undocumented processes create both regulatory and legal exposure.' },
+                    { title: 'Highest Return on Improvement', desc: 'Businesses at this level typically see the fastest and most dramatic results from a structured operational assessment.' }
+                ];
+            }
+
+            var html = '<div class="results active">';
+            html += '<div class="score-card">';
+            html += '<div class="score-ring" style="border: 4px solid ' + levelColor + '">';
+            html += '<div class="score-number" style="color:' + levelColor + '">' + pct + '%</div>';
+            html += '</div>';
+            html += '<div class="score-label" style="color:' + levelColor + '">' + level + '</div>';
+            html += '<p class="score-desc">' + desc + '</p>';
+            html += '</div>';
+
+            html += '<div class="findings"><h3>What This Means for Your Business</h3>';
+            findings.forEach(function(f) {
+                html += '<div class="finding-item">';
+                html += '<div class="finding-title">' + f.title + '</div>';
+                html += '<div class="finding-desc">' + f.desc + '</div>';
+                html += '</div>';
+            });
+            html += '</div>';
+
+            html += '<div class="results-cta">';
+            html += '<h3>Want to See the Full Picture?</h3>';
+            html += '<p>This diagnostic identifies patterns. A formal Operational Assessment quantifies the exact dollar impact and delivers a prioritized intervention roadmap.</p>';
+            html += '<a href="https://pngsolutionsllc.com/#book">Request an Operational Assessment</a>';
+            html += '</div></div>';
+
+            document.getElementById('resultsSection').innerHTML = html;
+            document.getElementById('progressFill').style.width = '100%';
+            document.getElementById('stepLabel').textContent = 'Results';
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
