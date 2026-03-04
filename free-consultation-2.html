@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Operational Assessment | PNG Solutions LLC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #002147;
+            --navy-dark: #001229;
+            --navy-light: #0A3260;
+            --blue: #0056A0;
+            --blue-light: #0068C3;
+            --charcoal: #4A4A4A;
+            --gray: #6D6E70;
+            --silver: #B0B3B8;
+            --silver-light: #D4D6DA;
+            --off-white: #F5F6F8;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--navy-dark);
+            color: var(--white);
+            line-height: 1.7;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; line-height: 1.2;
+        }
+
+        /* Nav */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(0, 18, 41, 0.97);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(176, 179, 184, 0.08);
+            padding: 14px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800; font-size: 1.1rem;
+            color: var(--white); text-decoration: none;
+        }
+        .nav-logo .n { color: var(--silver); }
+        .nav-cta {
+            background: var(--blue); color: var(--white);
+            padding: 10px 20px; border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; font-size: 0.8rem;
+            text-decoration: none; transition: all 0.3s;
+        }
+        .nav-cta:hover { background: var(--blue-light); }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+        /* Hero */
+        .hero {
+            padding: 140px 0 80px;
+            text-align: center;
+            background: linear-gradient(160deg, var(--navy-dark) 0%, var(--navy) 50%, var(--navy-dark) 100%);
+            position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(0, 86, 160, 0.1) 0%, transparent 70%);
+            top: -200px; right: -200px;
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(176, 179, 184, 0.08);
+            border: 1px solid rgba(176, 179, 184, 0.15);
+            padding: 8px 18px; border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.6rem; font-weight: 700;
+            color: var(--silver); text-transform: uppercase;
+            letter-spacing: 0.1em; margin-bottom: 24px;
+        }
+        .hero-badge::before {
+            content: ''; width: 8px; height: 8px;
+            background: var(--blue); border-radius: 2px;
+        }
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 900; margin-bottom: 20px;
+            max-width: 700px; margin-left: auto; margin-right: auto;
+        }
+        .hero p {
+            color: var(--silver); font-size: 1.05rem;
+            max-width: 580px; margin: 0 auto 36px;
+            line-height: 1.8;
+        }
+        .hero-cta {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--blue); color: var(--white);
+            padding: 18px 36px; border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; font-size: 0.95rem;
+            text-decoration: none; transition: all 0.3s;
+        }
+        .hero-cta:hover {
+            background: var(--blue-light); transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 86, 160, 0.35);
+        }
+        .hero-cta svg { width: 20px; height: 20px; }
+
+        /* Pain Points */
+        .pain-section {
+            padding: 80px 0;
+            background: var(--off-white);
+        }
+        .pain-section h2 {
+            text-align: center; font-size: 2rem;
+            font-weight: 900; color: var(--navy);
+            margin-bottom: 12px;
+        }
+        .pain-subtitle {
+            text-align: center; color: var(--gray);
+            font-size: 1rem; margin-bottom: 48px;
+            max-width: 560px; margin-left: auto; margin-right: auto;
+        }
+        .pain-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .pain-card {
+            background: var(--white); padding: 32px 24px;
+            border-radius: 8px; border-left: 3px solid var(--navy);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        .pain-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,33,71,0.1);
+        }
+        .pain-card h4 {
+            color: var(--navy); font-size: 1rem;
+            font-weight: 700; margin-bottom: 10px;
+        }
+        .pain-card p { color: var(--charcoal); font-size: 0.9rem; }
+
+        /* What You Get */
+        .value-section {
+            padding: 80px 0;
+            background: var(--navy);
+        }
+        .value-section h2 {
+            text-align: center; font-size: 2rem;
+            font-weight: 900; margin-bottom: 48px;
+        }
+        .value-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 20px; max-width: 800px; margin: 0 auto;
+        }
+        .value-item {
+            display: flex; align-items: flex-start; gap: 16px;
+            padding: 24px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(176,179,184,0.1);
+            border-radius: 8px;
+        }
+        .value-num {
+            width: 40px; height: 40px;
+            background: var(--blue); border-radius: 6px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900; font-size: 1rem;
+            flex-shrink: 0;
+        }
+        .value-item h4 { font-size: 0.95rem; margin-bottom: 6px; }
+        .value-item p { color: var(--silver); font-size: 0.88rem; }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--off-white);
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 2rem; font-weight: 900;
+            color: var(--navy); margin-bottom: 16px;
+        }
+        .cta-section > .container > p {
+            color: var(--charcoal); font-size: 1rem;
+            max-width: 520px; margin: 0 auto 32px;
+        }
+        .cta-main {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--blue); color: var(--white);
+            padding: 18px 36px; border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; font-size: 0.95rem;
+            text-decoration: none; transition: all 0.3s;
+        }
+        .cta-main:hover {
+            background: var(--blue-light); transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 86, 160, 0.35);
+        }
+        .cta-note {
+            display: block; margin-top: 16px;
+            font-size: 0.85rem; color: var(--gray);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy-dark);
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .footer p { color: var(--gray); font-size: 0.8rem; }
+        .footer a { color: var(--silver); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .pain-grid { grid-template-columns: 1fr; }
+            .value-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="https://pngsolutionsllc.com" class="nav-logo">P<span class="n">N</span>G Solutions</a>
+        <a href="https://pngsolutionsllc.com/#book" class="nav-cta">Request Assessment</a>
+    </div>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">Service-Disabled Veteran-Owned Small Business</div>
+            <h1>Your Operations Are Quietly Costing You Money. Let's Find Out How Much.</h1>
+            <p>A focused, no-pressure conversation about where your processes stand today, where the gaps are, and what closing them would be worth to your business.</p>
+            <a href="https://calendly.com/llc-pngsolutions/free-15-min-process-audit" target="_blank" class="hero-cta">
+                Schedule Your Free Assessment
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <section class="pain-section">
+        <div class="container">
+            <h2>Sound Familiar?</h2>
+            <p class="pain-subtitle">These are the invisible costs that compound every month.</p>
+            <div class="pain-grid">
+                <div class="pain-card">
+                    <h4>Leads slip through the cracks</h4>
+                    <p>Referrals and inquiries get lost because there's no structured intake or follow-up process. Every missed lead is revenue that never materializes.</p>
+                </div>
+                <div class="pain-card">
+                    <h4>Staff buried in manual work</h4>
+                    <p>Your team spends 10+ hours a week on data entry, paperwork, and tasks that should take a fraction of the time.</p>
+                </div>
+                <div class="pain-card">
+                    <h4>Nothing is documented</h4>
+                    <p>Scope changes, approvals, and commitments live in text messages and memory. When something goes wrong, there's no trail.</p>
+                </div>
+                <div class="pain-card">
+                    <h4>Compliance keeps you up at night</h4>
+                    <p>You know your documentation has gaps. An audit would require scrambling to piece things together from scattered sources.</p>
+                </div>
+                <div class="pain-card">
+                    <h4>Everything bottlenecks through one person</h4>
+                    <p>Approvals, decisions, and handoffs stall because the process depends on one person's availability or memory.</p>
+                </div>
+                <div class="pain-card">
+                    <h4>No visibility into what's actually happening</h4>
+                    <p>You can't see where time goes, where money leaks, or where the real problems are until they become emergencies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="value-section">
+        <div class="container">
+            <h2>What You Get From the Assessment</h2>
+            <div class="value-grid">
+                <div class="value-item">
+                    <div class="value-num">1</div>
+                    <div>
+                        <h4>Current State Visibility</h4>
+                        <p>We map your actual workflows &mdash; not what's in the manual, but how things really work day to day.</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-num">2</div>
+                    <div>
+                        <h4>Revenue Leakage Identification</h4>
+                        <p>We quantify what each process gap is costing you in real dollars &mdash; missed leads, rework, unbilled time.</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-num">3</div>
+                    <div>
+                        <h4>Time Loss Quantification</h4>
+                        <p>We calculate the labor hours your team is consuming on manual processes that should be systematized.</p>
+                    </div>
+                </div>
+                <div class="value-item">
+                    <div class="value-num">4</div>
+                    <div>
+                        <h4>System Intervention Plan</h4>
+                        <p>You receive a prioritized roadmap with fixed pricing &mdash; clear next steps, not a vague proposal.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to See What You're Missing?</h2>
+            <p>15 minutes. No sales pressure. No obligation. Just a clear-eyed look at your operations and an honest assessment of where the gaps are.</p>
+            <a href="https://calendly.com/llc-pngsolutions/free-15-min-process-audit" target="_blank" class="cta-main">
+                Schedule Your Free Assessment
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+            <span class="cta-note">Or <a href="https://pngsolutionsllc.com/#book" style="color: var(--blue); text-decoration: underline;">request an assessment</a> through our website.</span>
+        </div>
+    </section>
+
+    <div class="footer">
+        <p><a href="https://pngsolutionsllc.com">PNG Solutions LLC</a> &nbsp;|&nbsp; San Antonio, Texas &nbsp;|&nbsp; (262) 721-7412</p>
+        <p style="margin-top: 6px;">&copy; 2025 PNG Solutions LLC. All rights reserved. SDVOSB Certified.</p>
+    </div>
+</body>
+</html>
