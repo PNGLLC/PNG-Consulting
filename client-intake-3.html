@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Consultation Intake | PNG Solutions LLC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #002147;
+            --navy-dark: #001229;
+            --blue: #0056A0;
+            --blue-light: #0068C3;
+            --charcoal: #4A4A4A;
+            --gray: #6D6E70;
+            --silver: #B0B3B8;
+            --silver-light: #D4D6DA;
+            --off-white: #F5F6F8;
+            --white: #FFFFFF;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: var(--off-white);
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
+            color: var(--white);
+            padding: 32px 20px;
+            text-align: center;
+        }
+        .header .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem; font-weight: 800;
+            margin-bottom: 4px;
+        }
+        .header .logo .n { color: var(--silver); }
+        .header p {
+            font-size: 0.75rem; color: var(--silver);
+            letter-spacing: 0.08em; text-transform: uppercase;
+        }
+
+        .container { max-width: 700px; margin: 0 auto; padding: 30px 20px 50px; }
+
+        .intro-card {
+            background: var(--white);
+            border-radius: 8px; padding: 28px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--blue);
+        }
+        .intro-card h1 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--navy); font-size: 1.4rem;
+            font-weight: 800; margin-bottom: 10px;
+        }
+        .intro-card p { color: var(--gray); margin-bottom: 12px; font-size: 0.95rem; }
+        .time-badge {
+            display: inline-block;
+            background: var(--navy); color: var(--white);
+            padding: 8px 16px; border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem; font-weight: 700;
+        }
+
+        .form-section {
+            background: var(--white);
+            border-radius: 8px; padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .section-header {
+            display: flex; align-items: center; gap: 12px;
+            margin-bottom: 20px; padding-bottom: 15px;
+            border-bottom: 2px solid var(--off-white);
+        }
+        .section-number {
+            width: 32px; height: 32px;
+            background: var(--navy); color: var(--white);
+            border-radius: 4px;
+            display: flex; align-items: center; justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800; font-size: 0.85rem;
+        }
+        .section-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--navy); font-size: 1.05rem; font-weight: 700;
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group:last-child { margin-bottom: 0; }
+        label {
+            display: block;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600; color: var(--navy);
+            margin-bottom: 6px; font-size: 0.9rem;
+        }
+        .helper { font-size: 0.85rem; color: var(--gray); margin-bottom: 8px; }
+
+        input[type="text"], input[type="email"], input[type="tel"],
+        select, textarea {
+            width: 100%; padding: 14px;
+            border: 2px solid var(--silver-light);
+            border-radius: 4px; font-size: 16px;
+            font-family: 'Open Sans', sans-serif;
+            transition: border-color 0.3s;
+            color: var(--charcoal);
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none; border-color: var(--blue);
+        }
+        textarea { min-height: 100px; resize: vertical; }
+
+        .checkbox-group { display: grid; gap: 10px; }
+        .checkbox-item {
+            display: flex; align-items: flex-start;
+            padding: 12px 14px; background: var(--off-white);
+            border-radius: 6px; cursor: pointer;
+            transition: all 0.2s; border: 2px solid transparent;
+        }
+        .checkbox-item:hover { border-color: var(--silver); }
+        .checkbox-item.selected { background: var(--white); border-color: var(--blue); }
+        .checkbox-item input[type="checkbox"] {
+            width: 20px; height: 20px; margin-right: 12px;
+            margin-top: 2px; cursor: pointer; accent-color: var(--blue);
+            flex-shrink: 0;
+        }
+        .checkbox-item .checkbox-content { flex: 1; }
+        .checkbox-item .checkbox-label { font-weight: 600; color: var(--navy); font-size: 0.9rem; }
+        .checkbox-item .checkbox-desc { font-size: 0.82rem; color: var(--gray); margin-top: 2px; }
+
+        .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        @media (max-width: 600px) { .row { grid-template-columns: 1fr; } }
+
+        .submit-btn {
+            width: 100%; padding: 16px;
+            background: var(--blue); color: var(--white);
+            border: none; border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem; font-weight: 700;
+            cursor: pointer; transition: all 0.3s;
+        }
+        .submit-btn:hover {
+            background: var(--blue-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 86, 160, 0.3);
+        }
+        .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+        .privacy-note {
+            text-align: center; font-size: 0.82rem;
+            color: var(--gray); margin-top: 12px;
+        }
+
+        .success-message {
+            display: none; text-align: center; padding: 48px 28px;
+        }
+        .success-message .icon {
+            width: 64px; height: 64px; margin: 0 auto 20px;
+            background: var(--blue); color: var(--white);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem;
+        }
+        .success-message h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--navy); font-size: 1.5rem;
+            font-weight: 800; margin-bottom: 10px;
+        }
+        .success-message p { color: var(--gray); margin-bottom: 20px; }
+        .next-steps {
+            background: var(--off-white); border-radius: 8px;
+            padding: 20px; text-align: left;
+        }
+        .next-steps h4 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--navy); margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+        .next-steps ul { list-style: none; }
+        .next-steps li {
+            padding: 6px 0; padding-left: 24px;
+            position: relative; color: var(--charcoal);
+            font-size: 0.9rem;
+        }
+        .next-steps li::before {
+            content: ''; position: absolute; left: 0; top: 12px;
+            width: 10px; height: 10px;
+            border: 2px solid var(--blue); border-radius: 2px;
+        }
+
+        .footer {
+            background: var(--navy-dark); color: var(--silver);
+            text-align: center; padding: 24px; font-size: 0.85rem;
+        }
+        .footer a { color: var(--white); text-decoration: none; }
+        .footer a:hover { color: var(--blue); }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">P<span class="n">N</span>G Solutions LLC</div>
+        <p>Efficiency. Compliance. Confidence &mdash; Delivered.</p>
+    </div>
+
+    <div class="container">
+        <div class="intro-card">
+            <h1>Pre-Consultation Intake Form</h1>
+            <p>This helps us prepare for a focused, productive conversation. The more detail you provide, the more value we can deliver in our first meeting.</p>
+            <div class="time-badge">Takes approximately 5&ndash;8 minutes</div>
+        </div>
+
+        <form id="intakeForm">
+            <!-- Section 1: Contact -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">1</span>
+                    <h2>Your Information</h2>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Full Name *</label>
+                        <input type="text" name="name" required placeholder="Your full name">
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" required placeholder="you@company.com">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" name="phone" placeholder="(555) 123-4567">
+                    </div>
+                    <div class="form-group">
+                        <label>Business Name *</label>
+                        <input type="text" name="businessName" required placeholder="Your company name">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Your Role / Title</label>
+                        <input type="text" name="role" placeholder="e.g., Owner, Office Manager, COO">
+                    </div>
+                    <div class="form-group">
+                        <label>Team Size</label>
+                        <select name="teamSize">
+                            <option value="">Select...</option>
+                            <option value="1-5">1&ndash;5 people</option>
+                            <option value="6-15">6&ndash;15 people</option>
+                            <option value="16-50">16&ndash;50 people</option>
+                            <option value="50+">50+ people</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Industry -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">2</span>
+                    <h2>Your Industry</h2>
+                </div>
+                <div class="form-group">
+                    <label>What industry are you in? *</label>
+                    <select name="industry" required>
+                        <option value="">Select your industry...</option>
+                        <option value="Healthcare">Healthcare (practice, clinic, home health, therapy)</option>
+                        <option value="Construction">Construction (GC, specialty contractor, trades)</option>
+                        <option value="Government Contracting">Government Contracting / Gov-adjacent</option>
+                        <option value="Other">Other regulated or admin-heavy industry</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Brief description of what your business does</label>
+                    <textarea name="businessDescription" placeholder="E.g., We're a 12-person home health agency serving the San Antonio metro area..."></textarea>
+                </div>
+            </div>
+
+            <!-- Section 3: Operational Challenges -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">3</span>
+                    <h2>Operational Challenges</h2>
+                </div>
+                <div class="form-group">
+                    <label>What's the single biggest operational challenge right now?</label>
+                    <p class="helper">The thing that keeps you up at night or costs you the most time.</p>
+                    <textarea name="biggestChallenge" placeholder="E.g., We're losing referrals because our intake process takes too long..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Which of these sound familiar? (select all that apply)</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="slow_response" id="pain1">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Slow lead or referral response times</div>
+                                <div class="checkbox-desc">Opportunities lost because follow-up takes too long</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="manual_processes" id="pain2">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Excessive manual data entry or paperwork</div>
+                                <div class="checkbox-desc">Staff spending hours on tasks that should take minutes</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="documentation_gaps" id="pain3">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Undocumented processes or scope changes</div>
+                                <div class="checkbox-desc">Things falling through cracks because nothing is tracked</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="compliance_risk" id="pain4">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Compliance documentation concerns</div>
+                                <div class="checkbox-desc">Audit trail gaps, missing records, regulatory worry</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="bottlenecks" id="pain5">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Approval or handoff bottlenecks</div>
+                                <div class="checkbox-desc">Work stalls waiting on one person or one step</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="painPoints" value="no_visibility" id="pain6">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">No visibility into operations</div>
+                                <div class="checkbox-desc">Can't tell what's working, what's behind, or where money is going</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Current Tools -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">4</span>
+                    <h2>Current Systems &amp; Tools</h2>
+                </div>
+                <div class="form-group">
+                    <label>What tools does your team currently use?</label>
+                    <p class="helper">This helps us understand your starting point.</p>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="google_workspace" id="tool1">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Google Workspace</div>
+                                <div class="checkbox-desc">Gmail, Sheets, Docs, Calendar</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="microsoft_365" id="tool2">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Microsoft 365</div>
+                                <div class="checkbox-desc">Outlook, Excel, Word, Teams</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="quickbooks" id="tool3">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">QuickBooks</div>
+                                <div class="checkbox-desc">Accounting &amp; invoicing</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="crm" id="tool4">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">CRM System</div>
+                                <div class="checkbox-desc">Salesforce, HubSpot, Zoho, etc.</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="project_management" id="tool5">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Project Management</div>
+                                <div class="checkbox-desc">Asana, Monday, Trello, ClickUp, etc.</div>
+                            </div>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="industry_specific" id="tool6">
+                            <div class="checkbox-content">
+                                <div class="checkbox-label">Industry-specific software</div>
+                                <div class="checkbox-desc">EHR, POS, field service, estimating, etc.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Any other tools worth mentioning?</label>
+                    <input type="text" name="otherTools" placeholder="E.g., Slack, Notion, custom software...">
+                </div>
+            </div>
+
+            <!-- Section 5: Goals -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">5</span>
+                    <h2>Goals &amp; Expectations</h2>
+                </div>
+                <div class="form-group">
+                    <label>What does success look like for you?</label>
+                    <p class="helper">If we solve this problem, what changes for your business?</p>
+                    <textarea name="successLooksLike" placeholder="Example: My team would recover 10+ hours a week and we'd never miss another referral..."></textarea>
+                </div>
+                <div class="row">
+                    <div class="form-group">
+                        <label>Timeline</label>
+                        <select name="timeline">
+                            <option value="">Select...</option>
+                            <option value="ASAP">ASAP &mdash; this is urgent</option>
+                            <option value="1-2 weeks">Within 1&ndash;2 weeks</option>
+                            <option value="1 month">Within a month</option>
+                            <option value="1-3 months">1&ndash;3 months</option>
+                            <option value="Just exploring">Just exploring options</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Budget range</label>
+                        <p class="helper">Helps us tailor recommendations.</p>
+                        <select name="budget">
+                            <option value="">Select...</option>
+                            <option value="Under $1,500">Under $1,500</option>
+                            <option value="$1,500 - $5,000">$1,500 &ndash; $5,000</option>
+                            <option value="$5,000 - $10,000">$5,000 &ndash; $10,000</option>
+                            <option value="$10,000+">$10,000+</option>
+                            <option value="Not sure yet">Not sure yet</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: Final -->
+            <div class="form-section">
+                <div class="section-header">
+                    <span class="section-number">6</span>
+                    <h2>Anything Else?</h2>
+                </div>
+                <div class="form-group">
+                    <label>Anything else you want us to know before our call?</label>
+                    <textarea name="anythingElse" placeholder="Questions, concerns, context, or things we should prepare for..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>How did you hear about PNG Solutions?</label>
+                    <select name="referralSource">
+                        <option value="">Select...</option>
+                        <option value="Google search">Google search</option>
+                        <option value="LinkedIn">LinkedIn</option>
+                        <option value="Referral">Referral from someone</option>
+                        <option value="Social media">Social media</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div style="padding: 0;">
+                <button type="submit" class="submit-btn" id="submitBtn">Submit &amp; Prepare for Our Call</button>
+                <p class="privacy-note">Your information is confidential and only used to prepare for our consultation.</p>
+            </div>
+        </form>
+
+        <!-- Success Message -->
+        <div class="form-section success-message" id="successMessage">
+            <div class="icon">✓</div>
+            <h2>Received. You're All Set.</h2>
+            <p>We've received your intake form and will review it before our call.</p>
+            <div class="next-steps">
+                <h4>What happens next:</h4>
+                <ul>
+                    <li>Check your email for calendar confirmation</li>
+                    <li>We review your responses and prepare tailored recommendations</li>
+                    <li>We meet at your scheduled time</li>
+                    <li>Come ready to discuss and ask questions</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p><a href="https://pngsolutionsllc.com">PNG Solutions LLC</a> &nbsp;|&nbsp; (262) 721-7412</p>
+        <p style="margin-top: 6px; font-size: 0.78rem;">Service-Disabled Veteran-Owned Small Business (SDVOSB)</p>
+    </div>
+
+    <script>
+        document.querySelectorAll('.checkbox-item').forEach(function(item) {
+            item.addEventListener('click', function(e) {
+                var checkbox = this.querySelector('input[type="checkbox"]');
+                if (e.target.type !== 'checkbox') { checkbox.checked = !checkbox.checked; }
+                this.classList.toggle('selected', checkbox.checked);
+            });
+        });
+
+        document.getElementById('intakeForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            var submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+
+            var formData = new FormData(this);
+            var data = { formType: 'intake' };
+            formData.forEach(function(value, key) {
+                if (data[key]) {
+                    if (Array.isArray(data[key])) { data[key].push(value); }
+                    else { data[key] = [data[key], value]; }
+                } else { data[key] = value; }
+            });
+            for (var key in data) {
+                if (Array.isArray(data[key])) { data[key] = data[key].join(', '); }
+            }
+
+            fetch('https://script.google.com/macros/s/AKfycbx1TuzDTM3UQ981yVNPbrFee28vKqMgDrcvo7ZiSVCw3n2UxuoBDFAIg8luBezAJLeeqg/exec', {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            }).then(function() {
+                document.getElementById('intakeForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                window.scrollTo(0, 0);
+            }).catch(function() {
+                document.getElementById('intakeForm').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                window.scrollTo(0, 0);
+            });
+        });
+    </script>
+</body>
+</html>
