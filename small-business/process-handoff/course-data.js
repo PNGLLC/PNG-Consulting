@@ -1,9 +1,10 @@
 window.COURSE = {
   id: 'smallbiz-out-of-your-head',
   industry: 'Small business',
-  title: 'Get It Out of Your Head',
+  title: "The Owner's Hand-Off Playbook",
+  role: 'Owners & Office Managers',
   subtitle: 'Document your three most important processes so someone else can run them, and the business stops depending on you being in the room.',
-  audience: 'Owners and managers of small teams',
+  audience: 'Owners, general managers and office managers',
   accent: '#0056A0',
   accentSoft: '#E6EFF7',
 

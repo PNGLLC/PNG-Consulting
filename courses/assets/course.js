@@ -79,7 +79,7 @@
 
     return '<aside id="sidebar" class="col-lg-4 col-xl-3 mb-4 order-2 order-lg-1">' +
       '<div class="panel">' +
-      '<a href="#home" class="text-decoration-none"><div class="lesson-kicker mb-1">' + esc(C.industry) + '</div>' +
+      '<a href="#home" class="text-decoration-none"><div class="lesson-kicker mb-1">For ' + esc(C.role) + '</div>' +
       '<h2 class="h6 mb-3">' + esc(C.title) + '</h2></a>' +
       '<div class="d-flex justify-content-between small mb-1"><span>Your progress</span><span>' + pct() + '%</span></div>' +
       '<div class="progress mb-3" role="progressbar" aria-label="Course progress" aria-valuenow="' + pct() + '" aria-valuemin="0" aria-valuemax="100">' +
@@ -103,20 +103,20 @@
     }).join('');
 
     return '<section class="course-hero"><div class="container">' +
-      '<span class="eyebrow">' + esc(C.industry) + ' &middot; Sample module</span>' +
+      '<span class="eyebrow">For ' + esc(C.role) + '</span>' +
       '<h1 class="mb-3">' + esc(C.title) + '</h1>' +
       '<p class="lead mb-4">' + esc(C.subtitle) + '</p>' +
       '<div class="meta-row mb-4">' +
       '<span><strong>' + C.lessons.length + '</strong> lessons</span>' +
       '<span><strong>' + totalMinutes() + '</strong> minutes</span>' +
       '<span><strong>' + C.quiz.length + '</strong>-question check</span>' +
-      '<span>For: <strong>' + esc(C.audience) + '</strong></span></div>' +
+      '<span>Industry: <strong>' + esc(C.industry) + '</strong></span></div>' +
       '<a class="btn btn-accent btn-lg me-2 mb-2" href="' + resumeHref + '">' + (started ? 'Continue' : 'Start the module') + '</a>' +
       (started ? '<button type="button" class="btn btn-light-outline btn-lg mb-2" id="restart">Start over</button>' : '') +
       '</div></section>' +
       '<div class="container py-5"><div class="row g-4">' +
       '<div class="col-lg-7"><div class="panel panel-accent h-100"><h2 class="h4 mb-3">The problem this solves</h2>' + C.problemHtml + '</div></div>' +
-      '<div class="col-lg-5"><div class="panel h-100"><h2 class="h4 mb-3">By the end, you can</h2><ul class="outcome-list">' + outcomes + '</ul></div></div>' +
+      '<div class="col-lg-5"><div class="panel h-100"><h2 class="h4 mb-1">By the end, you can</h2><p class="small text-secondary mb-3">Written for: ' + esc(C.audience) + '</p><ul class="outcome-list">' + outcomes + '</ul></div></div>' +
       '<div class="col-12"><div class="panel"><h2 class="h4 mb-3">What is inside</h2><ul class="lesson-list">' + lessons +
       '<li><a class="' + (state.score !== null ? 'done' : '') + '" href="#check"><span class="dot" aria-hidden="true">' + (state.score !== null ? '&#10003;' : '?') + '</span>' +
       '<span>Knowledge check<small>' + C.quiz.length + ' scenario questions with feedback, then your take-away ' + esc(C.jobAid.kind) + '</small></span></a></li>' +

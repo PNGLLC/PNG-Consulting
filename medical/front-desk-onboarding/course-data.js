@@ -1,9 +1,10 @@
 window.COURSE = {
   id: 'medical-front-desk-30',
   industry: 'Medical practices',
-  title: 'Front Desk: The First 30 Days',
+  title: 'Front Desk Onboarding: The First 30 Days',
+  role: 'Front Desk & Patient Services',
   subtitle: 'Get a new front desk hire confident with scheduling, check-in and the phones in their first month, without pulling your office manager off the floor.',
-  audience: 'New front desk staff and the managers who train them',
+  audience: 'New front desk and patient services staff',
   accent: '#0F766E',
   accentSoft: '#E3F2F0',
 

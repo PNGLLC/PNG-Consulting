@@ -188,6 +188,7 @@ h1, h2, h3, h4, .h1, .h2, .h3, .h4, .h5, .h6 { font-family: 'Montserrat', system
 .course-card:hover, .course-card:focus { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0, 33, 71, 0.12); color: inherit; }
 .course-card .industry { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--card-accent, var(--png-blue)); }
 .course-card h3 { font-size: 1.25rem; margin: 0.4rem 0 0.6rem; }
+.course-card .tag { align-self: flex-start; font-size: 0.72rem; font-weight: 600; color: #4A4A4A; background: var(--png-off-white); border: 1px solid #E3E5E9; border-radius: 999px; padding: 0.15rem 0.6rem; margin-bottom: 0.9rem; }
 .course-card .go { margin-top: auto; font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--png-navy); }
 
 /* ---------- Footer ---------- */

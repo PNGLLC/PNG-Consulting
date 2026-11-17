@@ -1,7 +1,8 @@
 window.COURSE = {
   id: 'construction-change-orders',
   industry: 'Construction',
-  title: 'Change Orders That Get Paid',
+  title: "The Project Manager's Change Order Playbook",
+  role: 'Project Managers & Superintendents',
   subtitle: 'Write it up, price it and get it signed before the work starts, so changed work turns into paid work instead of a dispute at closeout.',
   audience: 'Project managers, superintendents and foremen',
   accent: '#B45309',
