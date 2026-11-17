@@ -204,7 +204,7 @@
       '<h3>' + esc(C.jobAid.title) + '</h3><p class="text-secondary">' + esc(C.jobAid.intro) + '</p>' + groups +
       '<div class="mt-3 no-print"><button type="button" class="btn btn-outline-navy btn-sm" id="print">Print this ' + esc(C.jobAid.kind) + '</button></div></div>' +
       '<div class="cta-band no-print"><div class="row align-items-center g-3"><div class="col-md-8">' +
-      '<h3 class="h4">' + esc(C.cta.heading) + '</h3><p class="mb-0">' + esc(C.cta.body) + '</p></div>' +
+      '<h3 class="h4">' + esc(C.cta.heading) + '</h3><p class="mb-2">' + esc(C.cta.body) + '</p><p class="mb-0 small">Most teams start with a Training &amp; Onboarding Review. <a class="text-white" href="../../courses/">See how it works</a></p></div>' +
       '<div class="col-md-4 text-md-end"><a class="btn btn-accent btn-lg" href="' + BOOK_URL + '" target="_blank" rel="noopener">Book a free 15-minute call</a></div></div></div>' +
       '</div></div></div>';
   }
