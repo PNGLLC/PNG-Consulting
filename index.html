@@ -197,7 +197,8 @@
             display: flex;
             align-items: center;
             gap: 6px;
-            padding: 10px 16px;
+            padding: 10px 12px;
+            white-space: nowrap;
             color: var(--silver);
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
@@ -1444,13 +1445,28 @@
         /* ============================================
            RESPONSIVE
            ============================================ */
+        /* Keep the nav on one line on narrower desktops */
+        .logo-text, .nav-cta { white-space: nowrap; }
+        @media (min-width: 901px) and (max-width: 1200px) {
+            .nav-menu { gap: 2px; }
+            .nav-link { padding: 10px 8px; font-size: 0.78rem; }
+            .nav-cta { padding: 10px 14px; font-size: 0.78rem; }
+            .logo-text { font-size: 1.15rem; }
+            .logo-tagline { display: none; }
+        }
+
         @media (max-width: 900px) {
             .nav-menu {
                 position: fixed;
                 top: 60px;
                 left: 0;
                 right: 0;
-                bottom: 0;
+                bottom: auto;
+                /* nav has backdrop-filter, which makes it the containing block:
+                   size the panel explicitly so it covers the screen */
+                height: calc(100vh - 60px);
+                height: calc(100dvh - 60px);
+                overflow-y: auto;
                 flex-direction: column;
                 background: var(--navy-dark);
                 padding: 24px;
@@ -1627,6 +1643,9 @@
                 </div>
                 <div class="nav-item">
                     <a href="#about" class="nav-link">About</a>
+                </div>
+                <div class="nav-item">
+                    <a href="courses/" class="nav-link">Training Samples</a>
                 </div>
                 <a href="#book" class="nav-cta">Request Assessment</a>
             </div>
